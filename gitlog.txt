@@ -1,0 +1,11 @@
+* commit c982a5ec79943782295a4c464a7c3dfdf84f9d16
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Tue Nov 22 12:13:49 2016 -0700
+| 
+|     wrote failing tests
+|  
+* commit 463b5d4a098a6afe5a51183349e786fc0bf09be9
+  Author: Jacob Wilson <jacwilso@mines.edu>
+  Date:   Thu Nov 17 11:09:35 2016 -0700
+  
+      Initial commit
