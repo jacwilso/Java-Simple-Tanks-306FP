@@ -18,7 +18,7 @@ public class FunctionalityTests {
 	@BeforeClass
 	public static void setUp(){
 		game = new Game();
-		launcher = new Launcher();
+		launcher = new Launcher(30, 30);
 	}
 	
 	@Test
@@ -32,7 +32,7 @@ public class FunctionalityTests {
 		assertEquals(launcher.getLocation().x, p.x);
 		assertEquals(launcher.getLocation().y, p.y);
 		launcher.increaseVelocity(15.0);
-		assertEquals(launcher.getInitialVelocity(), 15.0, 0.01); //NOT SURE WHY THERE IS A STRIKETHROUGH HERE
+		assertEquals(launcher.getInitialVelocity(), 15.0, 0.01); 
 		launcher.decreaseVelocity(6.0);
 		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 	}
