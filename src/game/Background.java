@@ -64,6 +64,10 @@ public class Background extends JComponent{
 	}
 	
 	public void moveTank(int x, int y){
-		tank.move(new Point(tank.position.x + x, tank.position.y + y));
+		tank.move(new Point(tank.getX() + x, tank.getY() + y));
+	}
+	
+	public void changeTankAngle(int a){
+		tank.changeAngle(a);
 	}
 }
