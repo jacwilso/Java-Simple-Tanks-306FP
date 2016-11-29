@@ -23,17 +23,17 @@ public class FunctionalityTests {
 	
 	@Test
 	public void launcherTests(){
-		launcher.increaseAngle(15);
+		launcher.changeAngle(15);
 		assertEquals(launcher.getAngle(), 15);
-		launcher.decreaseAngle(6);
+		launcher.changeAngle(9);
 		assertEquals(launcher.getAngle(), 9);
 		Point p = new Point(2,2);
 		launcher.move(p);
 		assertEquals(launcher.getLocation().x, p.x);
 		assertEquals(launcher.getLocation().y, p.y);
-		launcher.increaseVelocity(15.0);
+		launcher.changeVelocity(15.0);
 		assertEquals(launcher.getInitialVelocity(), 15.0, 0.01); 
-		launcher.decreaseVelocity(6.0);
+		launcher.changeVelocity(9.0);
 		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 	}
 	@Test

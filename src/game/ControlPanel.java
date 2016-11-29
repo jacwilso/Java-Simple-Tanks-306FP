@@ -18,9 +18,12 @@ import javax.swing.border.TitledBorder;
 
 public class ControlPanel extends JPanel{
 	JButton fireButton, velocityDownButton, velocityUpButton, angleDownButton, angleUpButton;
+	JTextField score, velocity, angle;
 	
+	Launcher tank;
 	
-	public ControlPanel(){
+	public ControlPanel(Launcher t){
+		this.tank = t;
 		JPanel panel = new JPanel();
 		//Fire button panel
 		fireButton = new JButton("Fire");
@@ -29,7 +32,8 @@ public class ControlPanel extends JPanel{
 		panel.add(fireButton);
 		//Score panel
 		JLabel scoreLabel = new JLabel("Score:");
-		JTextField score = new JTextField(3);
+		score = new JTextField(3);
+		score.setEditable(false);
 		panel.add(scoreLabel);
 		panel.add(score);
 		//Velocity panel
@@ -37,7 +41,9 @@ public class ControlPanel extends JPanel{
 		velocityUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Velocity"+"</center></html>");
 		velocityDownButton.addActionListener(new ButtonListener());
 		velocityUpButton.addActionListener(new ButtonListener());
-		JTextField velocity = new JTextField(3);
+		velocity = new JTextField(3);
+		velocity.setText(tank.getInitialVelocity() +"");
+		velocity.addActionListener(new TextListner());
 		panel.add(velocityDownButton);
 		panel.add(velocity);
 		panel.add(velocityUpButton);
@@ -46,7 +52,9 @@ public class ControlPanel extends JPanel{
 		angleUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Angle"+"</center></html>");
 		angleDownButton.addActionListener(new ButtonListener());
 		angleUpButton.addActionListener(new ButtonListener());
-		JTextField angle = new JTextField(3);
+		angle = new JTextField(3);
+		angle.setText(tank.getAngle() +"");
+		angle.addActionListener(new TextListner());
 		panel.add(angleDownButton);
 		panel.add(angle);
 		panel.add(angleUpButton);
@@ -59,20 +67,55 @@ public class ControlPanel extends JPanel{
 				
 			}
 			if(e.getSource().equals(velocityDownButton)){
-				
+				tank.changeVelocity(tank.getInitialVelocity() - 1);
+				velocity.setText(tank.getInitialVelocity() +"");
 			}
 			if(e.getSource().equals(velocityUpButton)){
-				
+				tank.changeVelocity(tank.getInitialVelocity() + 1);
+				velocity.setText(tank.getInitialVelocity() +"");
 			}
 			if(e.getSource().equals(angleDownButton)){
-				
+				tank.changeAngle(tank.getAngle() - 5);
+				angle.setText(tank.getAngle() +"");
 			}
 			if(e.getSource().equals(angleUpButton)){
-				
+				tank.changeAngle(tank.getAngle() + 5);
+				angle.setText(tank.getAngle() +"");
 			}
 
 		}
 	}
+	
+	private class TextListner implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource().equals(velocity)){
+				try{
+				double velocityValue = Double.parseDouble(velocity.getText());
+				tank.changeVelocity(velocityValue);
+				velocity.setText(tank.getInitialVelocity() +"");
+				}
+				catch(NumberFormatException ex){
+					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
+					velocity.setText(tank.getInitialVelocity()+"");
+				}
+				
+			}
+			if(e.getSource().equals(angle)){
+				try{
+				int angleValue = Integer.valueOf(angle.getText());
+				tank.changeAngle(angleValue);
+				angle.setText(tank.getAngle() +"");
+				}
+				catch(NumberFormatException ex){
+					JOptionPane.showMessageDialog(null, "Angle must be an integer.");
+					angle.setText(tank.getAngle() +"");
+				}
+			}		
+		}
+		
+	}
+	
+	
 	
 	
 		
@@ -84,15 +127,5 @@ public class ControlPanel extends JPanel{
 	}
 	public void updateScore(){
 		
-	}
-	
-	public static void main(String[] args){
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(new Dimension(800,200));
-		ControlPanel gui = new ControlPanel();
-		frame.add(gui, BorderLayout.CENTER);
-		frame.pack();
-		frame.setVisible(true);
 	}
 }

@@ -20,12 +20,13 @@ public class Background extends JComponent{
 	private Launcher tank;
 	private Projectile p;
 	
-	public Background(int width, int height){
+	public Background(int width, int height, Launcher tank){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
-		tank = new Launcher(10,height-60);
+		tank.move(new Point(10,height-60));
+		this.tank = tank;
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				//moveTank(1,0);

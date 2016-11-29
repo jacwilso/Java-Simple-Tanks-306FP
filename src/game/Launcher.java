@@ -24,20 +24,24 @@ public class Launcher{
 		vX = initialVelocity*Math.cos(Math.toRadians(angle));
 		vY = initialVelocity*Math.sin(Math.toRadians(angle));
 	}
+
 	public void setAngle(int a){
 		angle = a;
 	}
+
 	public void showTrajectory(Graphics g, int percent){
+		g.setColor(Color.RED);
 		double tFinal = vY/GRAVITY + Math.sqrt(Math.pow(vY/GRAVITY,2) + 2*(position.y-justTheTip.y)/GRAVITY);
 		double x = justTheTip.x + vX * tFinal;
 		double y = justTheTip.y -  vY * tFinal + 0.5*GRAVITY*Math.pow(tFinal,2);
 		g.fillOval((int)x,(int)y, 15, 15);
-		for(int i=1; i<=100; i++){
+		for(int i=1; i<=percent; i++){
 			x = justTheTip.x + vX * i*tFinal/(double)100;
 			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
 			g.fillOval((int)x,(int)y, 2, 2);
 		}
 	}
+
 	public void draw(Graphics g){
 		g.setColor(Color.gray);
 		g.fillRect(position.x, position.y, 50, 20);
@@ -54,7 +58,7 @@ public class Launcher{
 		g2.setStroke(new BasicStroke(4));
 		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
 		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
-		showTrajectory(g, 50);
+		showTrajectory(g, 100);
 	}
 	public int getAngle(){
 		return angle;
@@ -79,8 +83,12 @@ public class Launcher{
 		return position.y;
 	}
 	
-	public void setVelocity(double v){
-		
+	public void changeVelocity(double v){
+		initialVelocity = v;
 	}
 	
+	public double getInitialVelocity(){
+		return initialVelocity;
+	}
+		
 }
