@@ -10,13 +10,12 @@ import java.awt.geom.Line2D;
 import javax.swing.JComponent;
 
 public class Launcher{
-	private Point position;
-	private Projectile missile;
-	private int angle;
-	private double initialVelocity;
-	private static final int LENGTH_ARM = 30;
-	private static final int BARREL_X_ADJ = 30;
-	private static final int BARREL_Y_ADJ = -8;
+	public Point position;
+	public Projectile missile;
+	public int angle;
+	public double initialVelocity;
+	private static final int LENGTH_ARM = 15;
+	public static final double GRAVITY = 9.8;
 	
 	public Launcher(int x, int y){
 		angle = 45;
@@ -24,6 +23,10 @@ public class Launcher{
 		initialVelocity = 0;
 	}
 
+	public void setAngle(int a){
+		angle = a;
+	}
+	
 	public void showTrajectory(double percent){
 		
 	}
