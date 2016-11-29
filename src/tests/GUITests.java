@@ -68,8 +68,10 @@ public class GUITests {
 		frame.setVisible(true);
 		Scanner in = new Scanner(System.in);
 		in.nextLine();
-		background.moveTank(100,0);
+		background.moveTank(50,0);
+		background.changeTankAngle(0);
 		background.update();
 		in.nextLine();
+
 	}
 }

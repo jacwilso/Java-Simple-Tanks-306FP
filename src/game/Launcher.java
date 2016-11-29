@@ -1,12 +1,16 @@
 package game;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.Line2D;
 
 import javax.swing.JComponent;
 
 public class Launcher{
+<<<<<<< HEAD
 	public Point position;
 	public Projectile missile;
 	public int angle;
@@ -15,7 +19,7 @@ public class Launcher{
 	public static final double GRAVITY = 9.8;
 	
 	public Launcher(int x, int y){
-		angle = 75;
+		angle = 45;
 		position = new Point(x, y);
 		vX = 0;
 		vY = 0;
@@ -33,10 +37,15 @@ public class Launcher{
 		g.setColor(Color.darkGray);
 		g.fillRect(position.x + 15, position.y - 10, 20, 10);
 		g.setColor(Color.GRAY);
+		/*
 		int[] xPoints = {position.x + 35, (int) (position.x + 35 + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int) (position.x + 35 + LENGTH_ARM*Math.cos(Math.toRadians(angle + 5))), position.x + 35};
 		int[] yPoints = {position.y - 10, (int) (position.y - 10 - LENGTH_ARM*Math.sin(Math.toRadians(angle))),  (int) (position.y - 5 - LENGTH_ARM*Math.sin(Math.toRadians(angle + 5))), position.y - 5};
 		g.fillPolygon(xPoints, yPoints, 4);
+		*/
 		//g.fillRect(x, y, width, height);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(4));
+		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, (int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle)))));
 		
 	}
 	public int getAngle(){
@@ -45,9 +54,23 @@ public class Launcher{
 	public void move(Point p){
 		position = p;
 	}
+	
+	public void changeAngle(int a){
+		angle = a;
+	}
+	
 	public Point getLocation(){
 		return position;
 	}
+	
+	public int getX(){
+		return position.x;
+	}
+	
+	public int getY(){
+		return position.y;
+	}
+	
 	public void increaseVelocity(double v){
 		
 	}
