@@ -10,26 +10,33 @@ import java.awt.geom.Line2D;
 import javax.swing.JComponent;
 
 public class Launcher{
-<<<<<<< HEAD
-	public Point position;
+	public Point position, justTheTip;
 	public Projectile missile;
 	public int angle;
-	public double vX, vY;
-	private static final int LENGTH_ARM = 15;
+	public double initialVelocity, vX, vY;
+	private static final int LENGTH_ARM = 15, BARREL_X_ADJ = 30, BARREL_Y_ADJ = -8;
 	public static final double GRAVITY = 9.8;
 	
 	public Launcher(int x, int y){
 		angle = 45;
 		position = new Point(x, y);
-		vX = 0;
-		vY = 0;
+		initialVelocity = 50;
+		vX = initialVelocity*Math.cos(Math.toRadians(angle));
+		vY = initialVelocity*Math.sin(Math.toRadians(angle));
 	}
 	public void setAngle(int a){
 		angle = a;
 	}
-	public void showTrajectory(double percent){
-		double x = vX * percent;
-		double y = vY * percent - 0.5*GRAVITY*percent;
+	public void showTrajectory(Graphics g, int percent){
+		double tFinal = vY/GRAVITY + Math.sqrt(Math.pow(vY/GRAVITY,2) + 2*(position.y-justTheTip.y)/GRAVITY);
+		double x = justTheTip.x + vX * tFinal;
+		double y = justTheTip.y -  vY * tFinal + 0.5*GRAVITY*Math.pow(tFinal,2);
+		g.fillOval((int)x,(int)y, 15, 15);
+		for(int i=1; i<=100; i++){
+			x = justTheTip.x + vX * i*tFinal/(double)100;
+			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
+			g.fillOval((int)x,(int)y, 2, 2);
+		}
 	}
 	public void draw(Graphics g){
 		g.setColor(Color.gray);
@@ -45,8 +52,9 @@ public class Launcher{
 		//g.fillRect(x, y, width, height);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(4));
-		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, (int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle)))));
-		
+		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
+		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
+		showTrajectory(g, 50);
 	}
 	public int getAngle(){
 		return angle;
@@ -71,15 +79,8 @@ public class Launcher{
 		return position.y;
 	}
 	
-	public void increaseVelocity(double v){
+	public void setVelocity(double v){
 		
 	}
-	public void decreaseVelocity(double v){
-		
-	}
-	public double getInitialVelocity(){
-		return initialVelocity;
-	}
-	
 	
 }

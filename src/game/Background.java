@@ -28,7 +28,7 @@ public class Background extends JComponent{
 		tank = new Launcher(10,height-60);
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				moveTank(1,0);
+				//moveTank(1,0);
 				update();
 				repaint();
 			}
