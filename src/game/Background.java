@@ -3,12 +3,15 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 public class Background extends JComponent{
@@ -23,6 +26,14 @@ public class Background extends JComponent{
 		cloudX = 100;
 		cloudY = 100;
 		tank = new Launcher(10,height-60);
+		Timer timer = new Timer(50, new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				moveTank(1,0);
+				update();
+				repaint();
+			}
+		});
+		timer.start();
 	}
 	
 	public void paintComponent(Graphics g){
@@ -33,19 +44,24 @@ public class Background extends JComponent{
 		/*** Cloud ***/
 		g.setColor(Color.WHITE);
 		// top cloud
-		g.fillOval(cloudX, cloudY, 		35, 35);
-		g.fillOval(cloudX+25, cloudY, 	35, 35);
-		g.fillOval(cloudX-25, cloudY, 	35, 35);
-		g.fillOval(cloudX, cloudY-15, 	35, 35);
-		g.fillOval(cloudX+15, cloudY-25, 35, 35);
-		g.fillOval(cloudX-15, cloudY-25, 35, 35);
+		for(int i=0; i<14; i++){
+		g.fillOval(cloudX	+140*(i-6), cloudY		+45*(int)Math.cos(Math.PI*i), 35, 35);
+		g.fillOval(cloudX+25+140*(i-6), cloudY		+45*(int)Math.cos(Math.PI*i), 35, 35);
+		g.fillOval(cloudX-25+140*(i-6), cloudY		+45*(int)Math.cos(Math.PI*i), 35, 35);
+		g.fillOval(cloudX	+140*(i-6), cloudY-15	+45*(int)Math.cos(Math.PI*i), 35, 35);
+		g.fillOval(cloudX+15+140*(i-6), cloudY-25	+45*(int)Math.cos(Math.PI*i), 35, 35);
+		g.fillOval(cloudX-15+140*(i-6), cloudY-25	+45*(int)Math.cos(Math.PI*i), 35, 35);
+		}
+		/*** BUSH ***/
+		g.setColor(new Color(0,100,0));
+		g.fillOval(width-110,height-65, 20, 20);
+		g.fillOval(width-125,height-65, 20, 20);
+		g.fillOval(width-117,height-75, 20, 20);
+		
+		g.fillOval(width-510,height-65, 20, 20);
+		g.fillOval(width-525,height-65, 20, 20);
+		g.fillOval(width-517,height-75, 20, 20);
 
-		g.fillOval(cloudX	+140, cloudY	+90, 35, 35);
-		g.fillOval(cloudX+25+140, cloudY	+90, 35, 35);
-		g.fillOval(cloudX-25+140, cloudY	+90, 35, 35);
-		g.fillOval(cloudX	+140, cloudY-15	+90, 35, 35);
-		g.fillOval(cloudX+15+140, cloudY-25	+90, 35, 35);
-		g.fillOval(cloudX-15+140, cloudY-25	+90, 35, 35);
 		/*** Sun ***/
 		g.setColor(Color.YELLOW);
 		g.fillOval(-50,-50,100,100);
@@ -57,9 +73,8 @@ public class Background extends JComponent{
 		//projectile paint
 	}
 	public void update(){
-		if(cloudX <= 0) cloudX = width;
-		else cloudX-=5;
-		System.out.println("MOVE");
+		if(cloudX <= -10) cloudX = width;
+		else cloudX-=1;
 		repaint();
 	}
 	

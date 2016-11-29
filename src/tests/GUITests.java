@@ -17,8 +17,8 @@ import game.Projectile;
 import org.junit.Test;
 
 public class GUITests {
-	
-	//@Test
+	/*
+	@Test
 	public void testBackground(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +29,7 @@ public class GUITests {
 		Scanner in = new Scanner(System.in);
 		//in.nextLine();
 	}
-	//@Test
+	@Test
 	public void TestProjectile(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,7 +41,7 @@ public class GUITests {
 		//in.nextLine();
 	}
 
-	//@Test
+	@Test
 	public void TestControlGUI(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +53,7 @@ public class GUITests {
 		Scanner in = new Scanner(System.in);
 		//in.nextLine();
 	}
+	*/
 	@Test
 	public void combineGUI(){
 		JFrame frame = new JFrame();
