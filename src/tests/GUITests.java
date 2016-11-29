@@ -40,17 +40,7 @@ public class GUITests {
 		Scanner in = new Scanner(System.in);
 		//in.nextLine();
 	}
-	//@Test
-	public void TestLauncher(){
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(new Dimension(500,500));
-		Launcher tank = new Launcher(30, 450);
-		frame.add(tank);
-		frame.setVisible(true);
-		Scanner in = new Scanner(System.in);
-		//in.nextLine();
-	}
+
 	//@Test
 	public void TestControlGUI(){
 		JFrame frame = new JFrame();
