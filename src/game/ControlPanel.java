@@ -18,25 +18,21 @@ public class ControlPanel extends JPanel{
 	public ControlPanel(){
 		JPanel panel = new JPanel();
 		//Fire button panel
-		JPanel firePanel = new JPanel();
 		JButton fireButton = new JButton("Fire");
 		panel.add(fireButton);
 		//Score panel
-		JPanel scorePanel = new JPanel();
 		JLabel scoreLabel = new JLabel("Score:");
 		JTextField score = new JTextField(3);
 		panel.add(scoreLabel);
 		panel.add(score);
-		//Power panel
-		JPanel powerPanel = new JPanel();
-		JButton powerDownButton = new JButton("<html><center>"+"Decrease"+"<br>"+"Power"+"</center></html>");
-		JButton powerUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Power"+"</center></html>");
-		JTextField power = new JTextField(3);
-		panel.add(powerDownButton);
-		panel.add(power);
-		panel.add(powerUpButton);
+		//Velocity panel
+		JButton velocityDownButton = new JButton("<html><center>"+"Decrease"+"<br>"+"Velocity"+"</center></html>");
+		JButton velocityUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Velocity"+"</center></html>");
+		JTextField velocity = new JTextField(3);
+		panel.add(velocityDownButton);
+		panel.add(velocity);
+		panel.add(velocityUpButton);
 		//Angle panel
-		JPanel anglePanel = new JPanel();
 		JButton angleDownButton = new JButton("<html><center>"+"Decrease"+"<br>"+"Angle"+"</center></html>");
 		JButton angleUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Angle"+"</center></html>");
 		JTextField angle = new JTextField(3);

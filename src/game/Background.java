@@ -2,6 +2,7 @@ package game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,12 +14,15 @@ import javax.swing.JPanel;
 public class Background extends JComponent{
 	private int width, height;
 	private int cloudX, cloudY;
+	private Launcher tank;
+	private Projectile p;
 	
 	public Background(int width, int height){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
+		tank = new Launcher(10,height-60);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -48,11 +52,18 @@ public class Background extends JComponent{
 		/*** Ground ***/
 		g.setColor(Color.GREEN);
 		g.fillRect(0,height-50,width,50);
+		//draw tank
+		tank.draw(g);
+		//projectile paint
 	}
 	public void update(){
 		if(cloudX <= 0) cloudX = width;
 		else cloudX-=5;
 		System.out.println("MOVE");
 		repaint();
+	}
+	
+	public void moveTank(int x, int y){
+		tank.move(new Point(tank.position.x + x, tank.position.y + y));
 	}
 }

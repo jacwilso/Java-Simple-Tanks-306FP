@@ -1,13 +1,16 @@
 package tests;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Point;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
 
 import game.Background;
+import game.ControlPanel;
 import game.Launcher;
 import game.Projectile;
 
@@ -15,7 +18,7 @@ import org.junit.Test;
 
 public class GUITests {
 	
-	@Test
+	//@Test
 	public void testBackground(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,9 +27,9 @@ public class GUITests {
 		frame.add(gui);
 		frame.setVisible(true);
 		Scanner in = new Scanner(System.in);
-		in.nextLine();
+		//in.nextLine();
 	}
-	@Test
+	//@Test
 	public void TestProjectile(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,9 +38,9 @@ public class GUITests {
 		frame.add(missile);
 		frame.setVisible(true);
 		Scanner in = new Scanner(System.in);
-		in.nextLine();
+		//in.nextLine();
 	}
-	@Test
+	//@Test
 	public void TestLauncher(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +49,36 @@ public class GUITests {
 		frame.add(tank);
 		frame.setVisible(true);
 		Scanner in = new Scanner(System.in);
+		//in.nextLine();
+	}
+	//@Test
+	public void TestControlGUI(){
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(new Dimension(800,200));
+		ControlPanel gui = new ControlPanel();
+		frame.add(gui, BorderLayout.CENTER);
+		frame.pack();
+		frame.setVisible(true);
+		Scanner in = new Scanner(System.in);
+		//in.nextLine();
+	}
+	@Test
+	public void combineGUI(){
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(new Dimension(800,700));
+		frame.setLayout(new GridLayout(2,0));
+		Background background = new Background(800,350);
+		ControlPanel control = new ControlPanel();
+		frame.add(background);
+		frame.add(control);
+		
+		frame.setVisible(true);
+		Scanner in = new Scanner(System.in);
+		in.nextLine();
+		background.moveTank(100,0);
+		background.update();
 		in.nextLine();
 	}
 }

@@ -6,11 +6,11 @@ import java.awt.Point;
 
 import javax.swing.JComponent;
 
-public class Launcher extends JComponent {
-	private Point position;
-	private Projectile missile;
-	private int angle;
-	private double initialVelocity;
+public class Launcher{
+	public Point position;
+	public Projectile missile;
+	public int angle;
+	public double initialVelocity;
 	
 	public Launcher(int x, int y){
 		angle = 0;
@@ -26,7 +26,7 @@ public class Launcher extends JComponent {
 	public void showTrajectory(double percent){
 		
 	}
-	public void paintComponent(Graphics g){
+	public void draw(Graphics g){
 		g.setColor(Color.gray);
 		g.fillRect(position.x, position.y, 50, 20);
 		g.setColor(Color.darkGray);
@@ -39,7 +39,7 @@ public class Launcher extends JComponent {
 		return angle;
 	}
 	public void move(Point p){
-		
+		position = p;
 	}
 	public Point getLocation(){
 		return position;
