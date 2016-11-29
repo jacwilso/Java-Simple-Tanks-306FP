@@ -23,12 +23,7 @@ public class Launcher{
 		position = new Point(x, y);
 		initialVelocity = 0;
 	}
-	public void increaseAngle(int a){
-		
-	}
-	public void decreaseAngle(int a){
-		
-	}
+
 	public void showTrajectory(double percent){
 		
 	}
@@ -72,12 +67,10 @@ public class Launcher{
 		return position.y;
 	}
 	
-	public void increaseVelocity(double v){
-		
+	public void changeVelocity(double v){
+		initialVelocity = v;
 	}
-	public void decreaseVelocity(double v){
-		
-	}
+	
 	public double getInitialVelocity(){
 		return initialVelocity;
 	}

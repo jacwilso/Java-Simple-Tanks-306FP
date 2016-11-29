@@ -60,8 +60,8 @@ public class GUITests {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(new Dimension(800,700));
 		frame.setLayout(new GridLayout(2,0));
-		Background background = new Background(800,350);
-		ControlPanel control = new ControlPanel();
+		Background background = new Background(800,350, new Launcher(0, 0));
+		ControlPanel control = new ControlPanel(new Launcher(0,0));
 		frame.add(background);
 		frame.add(control);
 		
