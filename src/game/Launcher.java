@@ -10,22 +10,22 @@ public class Launcher{
 	public Point position;
 	public Projectile missile;
 	public int angle;
-	public double initialVelocity;
+	public double vX, vY;
 	private static final int LENGTH_ARM = 15;
+	public static final double GRAVITY = 9.8;
 	
 	public Launcher(int x, int y){
 		angle = 75;
 		position = new Point(x, y);
-		initialVelocity = 0;
+		vX = 0;
+		vY = 0;
 	}
-	public void increaseAngle(int a){
-		
-	}
-	public void decreaseAngle(int a){
-		
+	public void setAngle(int a){
+		angle = a;
 	}
 	public void showTrajectory(double percent){
-		
+		double x = vX * percent;
+		double y = vY * percent - 0.5*GRAVITY*percent;
 	}
 	public void draw(Graphics g){
 		g.setColor(Color.gray);

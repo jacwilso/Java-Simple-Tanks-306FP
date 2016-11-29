@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 public class Game extends JFrame{
-	private Launcher player;
 	private Target target;
 	private Background background;
 	private Obstacle obstacle;
