@@ -11,9 +11,10 @@ public class Launcher extends JComponent {
 	private Projectile missile;
 	private int angle;
 	private double initialVelocity;
+	private static final int LENGTH_ARM = 15;
 	
 	public Launcher(int x, int y){
-		angle = 0;
+		angle = 40;
 		position = new Point(x, y);
 		initialVelocity = 0;
 	}
@@ -32,7 +33,10 @@ public class Launcher extends JComponent {
 		g.setColor(Color.darkGray);
 		g.fillRect(position.x + 15, position.y - 10, 20, 10);
 		g.setColor(Color.GRAY);
-		g.fillRect(position.x + 35, position.y-10, 15, 5);
+		int[] xPoints = {position.x + 35, (int) (position.x + 35 + LENGTH_ARM*Math.cos(angle)), (int) (position.x + 35 + LENGTH_ARM*Math.cos(angle)), position.x + 35};
+		int[] yPoints = {position.y - 10, (int) (position.y - 10 - LENGTH_ARM*Math.sin(angle)),  (int) (position.y - 5 - LENGTH_ARM*Math.sin(angle)), position.y - 5};
+		g.fillPolygon(xPoints, yPoints, 4);
+		//g.fillRect(x, y, width, height);
 		
 	}
 	public int getAngle(){
