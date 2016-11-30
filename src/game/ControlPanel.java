@@ -69,6 +69,7 @@ public class ControlPanel extends JPanel{
 	public void update(){
 		velocity.setText(tank.getInitialVelocity() +"");
 		angle.setText(tank.getAngle() +"");
+		score.setText(tank.getScore());
 	}
 	
 	private class ButtonListener implements ActionListener{
@@ -92,7 +93,6 @@ public class ControlPanel extends JPanel{
 				tank.changeAngle(tank.getAngle() + 5);
 				angle.setText(tank.getAngle() +"");
 			}
-
 		}
 	}
 	
