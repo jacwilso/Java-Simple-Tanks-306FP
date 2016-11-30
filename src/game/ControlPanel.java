@@ -103,9 +103,9 @@ public class ControlPanel extends JPanel{
 				double velocityValue = Double.parseDouble(velocity.getText());
 				tank.changeVelocity(velocityValue);
 				velocity.setText(tank.getInitialVelocity() +"");
+				angle.setFocusable(false);
 				velocity.setFocusable(false);
 				velocity.setFocusable(true);
-				angle.setFocusable(false);
 				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
