@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -62,6 +64,11 @@ public class ControlPanel extends JPanel{
 		panel.add(angle);
 		panel.add(angleUpButton);
 		add(panel);
+	}
+	
+	public void update(){
+		velocity.setText(tank.getInitialVelocity() +"");
+		angle.setText(tank.getAngle() +"");
 	}
 	
 	private class ButtonListener implements ActionListener{
