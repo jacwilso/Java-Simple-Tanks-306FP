@@ -53,6 +53,10 @@ public class Projectile{
 		return finished;
 	}
 	
+	public void setFinished(boolean b){
+		finished = b;
+	}
+	
 	public void draw(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillOval((int)positionX, (int)positionY, 5, 5);	

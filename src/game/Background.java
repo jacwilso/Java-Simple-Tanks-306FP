@@ -92,6 +92,9 @@ public class Background extends JComponent{
 		if(tank.collisionDetection(target.getPosition())){
 			target.hit(width, height);
 		}
+		if(tank.tankCollisionDetection(tank.getLocation())){
+			System.out.println("You shot yourself dumby");
+		}
 		repaint();
 	}
 	
