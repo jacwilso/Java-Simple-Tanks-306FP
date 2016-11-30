@@ -63,12 +63,10 @@ public class Projectile{
 	}
 
 	public boolean collisionDetection(Point target) {
-		if(!finished){
-			double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
-			if( mag < 10 ){
-				finished = true;
-				return true;
-			}
+		double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
+		if( mag < 11 ){
+			finished = true;
+			return true;
 		}
 		return false;
 	}

@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Target {
 	private Point position;
-	private static final int SIZE = 10;
+	public static final int SIZE = 24;
 	
 	public Target(){
 		position = new Point(100,260);
@@ -18,9 +18,11 @@ public class Target {
 	
 	public void draw(Graphics g){
 		g.setColor(Color.RED);
-		g.fillOval((int)position.x, (int)position.y, SIZE, SIZE);
+		g.fillOval((int)position.x-SIZE/2, (int)position.y-SIZE/2, SIZE, SIZE);
 		g.setColor(Color.WHITE);
-		g.fillOval((int)position.x+SIZE/4, (int)position.y+SIZE/4, SIZE/2, SIZE/2);
+		g.fillOval((int)position.x+SIZE/6-SIZE/2, (int)position.y+SIZE/6-SIZE/2, 2*SIZE/3, 2*SIZE/3);
+		g.setColor(Color.RED);
+		g.fillOval((int)position.x+SIZE/3-SIZE/2, (int)position.y+SIZE/3-SIZE/2, SIZE/3, SIZE/3);
 	}
 
 	public Point getPosition() {

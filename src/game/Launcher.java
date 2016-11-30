@@ -101,6 +101,10 @@ public class Launcher{
 		return initialVelocity;
 	}
 	
+	public Point getTip(){
+		return justTheTip;
+	}
+	
 	public void moveTank(int x, int y){
 		move(new Point(position.x + x, position.y + y));
 	}
