@@ -26,7 +26,7 @@ public class ControlPanel extends JPanel{
 		JPanel panel = new JPanel();
 		//Fire button panel
 		fireButton = new JButton("Fire");
-		
+		fireButton.setFocusable(false);
 		fireButton.addActionListener(new ButtonListener());
 		panel.add(fireButton);
 		//Score panel
@@ -37,7 +37,9 @@ public class ControlPanel extends JPanel{
 		panel.add(score);
 		//Velocity panel
 		velocityDownButton = new JButton("<html><center>"+"Decrease"+"<br>"+"Velocity"+"</center></html>");
+		velocityDownButton.setFocusable(false);
 		velocityUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Velocity"+"</center></html>");
+		velocityUpButton.setFocusable(false);
 		velocityDownButton.addActionListener(new ButtonListener());
 		velocityUpButton.addActionListener(new ButtonListener());
 		velocity = new JTextField(3);
@@ -49,6 +51,8 @@ public class ControlPanel extends JPanel{
 		//Angle panel
 		angleDownButton = new JButton("<html><center>"+"Decrease"+"<br>"+"Angle"+"</center></html>");
 		angleUpButton = new JButton("<html><center>"+"Increase"+"<br>"+"Angle"+"</center></html>");
+		angleDownButton.setFocusable(false);
+		angleUpButton.setFocusable(false);
 		angleDownButton.addActionListener(new ButtonListener());
 		angleUpButton.addActionListener(new ButtonListener());
 		angle = new JTextField(3);

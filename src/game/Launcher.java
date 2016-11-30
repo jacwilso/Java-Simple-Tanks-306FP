@@ -46,19 +46,14 @@ public class Launcher{
 		g.setColor(Color.darkGray);
 		g.fillRect(position.x + 15, position.y - 10, 20, 10);
 		g.setColor(Color.GRAY);
-		/*
-		int[] xPoints = {position.x + 35, (int) (position.x + 35 + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int) (position.x + 35 + LENGTH_ARM*Math.cos(Math.toRadians(angle + 5))), position.x + 35};
-		int[] yPoints = {position.y - 10, (int) (position.y - 10 - LENGTH_ARM*Math.sin(Math.toRadians(angle))),  (int) (position.y - 5 - LENGTH_ARM*Math.sin(Math.toRadians(angle + 5))), position.y - 5};
-		g.fillPolygon(xPoints, yPoints, 4);
-		*/
-		//g.fillRect(x, y, width, height);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(4));
 		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
 		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
 		showTrajectory(g, 40);
 		for(Projectile proj : missles){
-			proj.draw(g);
+			if(!proj.isFinished())		// SHOULD CHANGE THIS
+				proj.draw(g);
 			//if(proj.isFinished())
 				//missles.remove(proj);
 		}
@@ -104,6 +99,15 @@ public class Launcher{
 	}
 	public void moveAngle(int a){
 		changeAngle(angle + a);
+	}
+
+	public boolean collisionDetection(Point target) {
+		for(Projectile proj : missles)
+			if(proj.collisionDetection(target)){
+				//missles.remove(proj);
+				return true;
+			}
+		return false;
 	}
 		
 }

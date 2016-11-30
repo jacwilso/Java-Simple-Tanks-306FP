@@ -1,25 +1,39 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
 
 public class Target {
-	private double width;
-	private double height;
 	private Point position;
+	private boolean hit;
+	private static final int SIZE = 10;
 	
 	public Target(){
-		position = new Point(20,20);
-		width = 10;
-		height = 10;
+		hit = false;
+		position = new Point(100,260);
+	}
+	public Target(Point position){
+		hit = false;
+		this.position = position;
+	}
+	
+	public void draw(Graphics g){
+		g.setColor(Color.RED);
+		g.fillOval((int)position.x, (int)position.y, SIZE, SIZE);
+		g.setColor(Color.WHITE);
+		g.fillOval((int)position.x+SIZE/4, (int)position.y+SIZE/4, SIZE/2, SIZE/2);
 	}
 
-	public void update(){
-		
-	}
-	public void draw(){
-		
-	}
-	public Point getLocation(){
+	public Point getPosition() {
 		return position;
+	}
+	
+	public void hit() {
+		hit = true;
+	}
+	
+	public boolean isHit() {
+		return hit;
 	}
 }

@@ -57,4 +57,10 @@ public class Projectile{
 		g.setColor(Color.WHITE);
 		g.fillOval((int)positionX, (int)positionY, 5, 5);	
 	}
+
+	public boolean collisionDetection(Point target) {
+		double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
+		if( mag < 10 ) return true;
+		return false;
+	}
 }

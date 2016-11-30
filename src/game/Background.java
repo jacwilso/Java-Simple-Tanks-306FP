@@ -18,7 +18,8 @@ public class Background extends JComponent{
 	private int width, height;
 	private int cloudX, cloudY;
 	private Launcher tank;
-	private Projectile p;
+	private Target target;
+
 	
 	public Background(int width, int height, Launcher tank){
 		this.width = width;
@@ -27,9 +28,9 @@ public class Background extends JComponent{
 		cloudY = 100;
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
+		target = new Target();
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				//tank.moveTank(1,0);
 				update();
 				repaint();
 			}
@@ -71,11 +72,18 @@ public class Background extends JComponent{
 		g.fillRect(0,height-50,width,50);
 		//draw tank
 		tank.draw(g);
-		//projectile paint
+		if(!target.isHit())
+			target.draw(g);
 	}
+	
 	public void update(){
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
+		if(tank.collisionDetection(target.getPosition())){
+			System.out.println("HIT");
+			//add points
+			target.hit();
+		}
 		repaint();
 	}
 	
