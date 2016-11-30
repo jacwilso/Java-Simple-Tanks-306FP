@@ -17,10 +17,9 @@ import javax.swing.border.TitledBorder;
 
 
 public class ControlPanel extends JPanel{
-	JButton fireButton, velocityDownButton, velocityUpButton, angleDownButton, angleUpButton;
-	JTextField score, velocity, angle;
-	
-	Launcher tank;
+	private JButton fireButton, velocityDownButton, velocityUpButton, angleDownButton, angleUpButton;
+	private JTextField score, velocity, angle;
+	private Launcher tank;
 	
 	public ControlPanel(Launcher t){
 		this.tank = t;
@@ -64,7 +63,7 @@ public class ControlPanel extends JPanel{
 	private class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(fireButton)){
-				
+				tank.addProjectile();
 			}
 			if(e.getSource().equals(velocityDownButton)){
 				tank.changeVelocity(tank.getInitialVelocity() - 1);
@@ -114,10 +113,6 @@ public class ControlPanel extends JPanel{
 		}
 		
 	}
-	
-	
-	
-	
 		
 	public void updateDisplayAngle(){
 

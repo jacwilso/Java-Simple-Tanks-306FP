@@ -6,13 +6,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Line2D;
+import java.util.ArrayList;
 
 import javax.swing.JComponent;
 
 public class Launcher{
-	public Point position, justTheTip;
-	public int angle;
-	public double initialVelocity;
+	private Point position, justTheTip;
+	private int angle;
+	private double initialVelocity;
+	private ArrayList<Projectile> missles;
 	private static final int LENGTH_ARM = 15, BARREL_X_ADJ = 30, BARREL_Y_ADJ = -8;
 	public static final double GRAVITY = 9.8;
 	
@@ -20,6 +22,7 @@ public class Launcher{
 		angle = 45;
 		position = new Point(x, y);
 		initialVelocity = 50;
+		missles = new ArrayList<Projectile>();
 	}
 
 	public void showTrajectory(Graphics g, int percent){
@@ -54,7 +57,17 @@ public class Launcher{
 		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
 		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
 		showTrajectory(g, 40);
+		for(Projectile proj : missles){
+			proj.draw(g);
+			//if(proj.isFinished())
+				//missles.remove(proj);
+		}
 	}
+	
+	public void addProjectile(){
+		missles.add(new Projectile(justTheTip, position.y, initialVelocity, angle));
+	}
+	
 	public int getAngle(){
 		return angle;
 	}
