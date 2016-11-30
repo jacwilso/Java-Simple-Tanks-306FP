@@ -53,14 +53,34 @@ public class Projectile{
 		return finished;
 	}
 	
+	public void setFinished(boolean b){
+		finished = b;
+	}
+	
 	public void draw(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillOval((int)positionX, (int)positionY, 5, 5);	
 	}
 
 	public boolean collisionDetection(Point target) {
-		double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
-		if( mag < 10 ) return true;
+		if(!finished){
+			double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
+			if( mag < 10 ){
+				finished = true;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean tankCollisionDetection(Point self) {
+		if(!finished){
+			if(((positionX<self.x+50)&&(positionX>self.x)&&(positionY<self.y+20)&&(positionY>self.y))||((positionX<self.x+35)&&(positionX>self.x+15)&&(positionY<self.y)&&(positionY>self.y-10))){
+				finished = true;
+				return true;
+			}
+		}
+		
 		return false;
 	}
 }

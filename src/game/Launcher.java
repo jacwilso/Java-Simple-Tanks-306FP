@@ -111,6 +111,16 @@ public class Launcher{
 			}
 		return false;
 	}
+	
+	public boolean tankCollisionDetection(Point self) {
+		for(Projectile proj : missles)
+			if(proj.tankCollisionDetection(self)){
+				//missles.remove(proj);
+				score -= 100;
+				return true;
+			}
+		return false;
+	}
 
 	public String getScore() {
 		return new Integer(score).toString();
