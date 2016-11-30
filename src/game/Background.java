@@ -29,7 +29,7 @@ public class Background extends JComponent{
 		this.tank = tank;
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				//moveTank(1,0);
+				//tank.moveTank(1,0);
 				update();
 				repaint();
 			}
@@ -77,10 +77,6 @@ public class Background extends JComponent{
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
 		repaint();
-	}
-	
-	public void moveTank(int x, int y){
-		tank.move(new Point(tank.getX() + x, tank.getY() + y));
 	}
 	
 	public void changeTankAngle(int a){

@@ -33,9 +33,14 @@ public class Game extends JFrame{
 			public void keyTyped(KeyEvent e) {}
 			public void keyPressed(KeyEvent e) {
 				System.out.println(e.getKeyCode());
+				if(e.getKeyCode() == 40)
+					tank.moveAngle(-5);
 				if(e.getKeyCode() == 39)
-					
+					tank.moveTank(3,0);
+				if(e.getKeyCode() == 38)
+					tank.moveAngle(5);
 				if(e.getKeyCode() ==37)
+					tank.moveTank(-3,0);
 			}
 			public void keyReleased(KeyEvent e) {}
 		});

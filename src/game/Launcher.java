@@ -98,5 +98,12 @@ public class Launcher{
 	public double getInitialVelocity(){
 		return initialVelocity;
 	}
+	
+	public void moveTank(int x, int y){
+		move(new Point(position.x + x, position.y + y));
+	}
+	public void moveAngle(int a){
+		changeAngle(angle + a);
+	}
 		
 }
