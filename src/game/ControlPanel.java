@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -64,6 +66,11 @@ public class ControlPanel extends JPanel{
 		add(panel);
 	}
 	
+	public void update(){
+		velocity.setText(tank.getInitialVelocity() +"");
+		angle.setText(tank.getAngle() +"");
+	}
+	
 	private class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(fireButton)){
@@ -96,6 +103,10 @@ public class ControlPanel extends JPanel{
 				double velocityValue = Double.parseDouble(velocity.getText());
 				tank.changeVelocity(velocityValue);
 				velocity.setText(tank.getInitialVelocity() +"");
+				velocity.setFocusable(false);
+				velocity.setFocusable(true);
+				angle.setFocusable(false);
+				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
@@ -108,6 +119,8 @@ public class ControlPanel extends JPanel{
 				int angleValue = Integer.valueOf(angle.getText());
 				tank.changeAngle(angleValue);
 				angle.setText(tank.getAngle() +"");
+				angle.setFocusable(false);
+				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Angle must be an integer.");

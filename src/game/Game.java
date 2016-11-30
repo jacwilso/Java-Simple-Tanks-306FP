@@ -12,6 +12,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Game extends JFrame{
 	private Launcher tank;
@@ -23,17 +26,19 @@ public class Game extends JFrame{
 	
 	public Game(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(new Dimension(800,700));
-		setLayout(new GridLayout(2,0));
+		setSize(new Dimension(800,450));
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		menuBar.add(createFileMenu());
 		tank = new Launcher(0,0);
 		background = new Background(800,350, tank);
 		control = new ControlPanel(tank);
-		add(background);
-		add(control);
+		add(background,BorderLayout.CENTER);
+		add(control,BorderLayout.SOUTH);
 		addKeyListener(new KeyListener(){
 			public void keyTyped(KeyEvent e) {}
 			public void keyPressed(KeyEvent e) {
-				System.out.println(e.getKeyCode());
+				//System.out.println(e.getKeyCode());
 				if(e.getKeyCode() == 40 || e.getKeyCode() == 83)
 					tank.moveAngle(-5);
 				if(e.getKeyCode() == 39 || e.getKeyCode() == 68)
@@ -42,6 +47,7 @@ public class Game extends JFrame{
 					tank.moveAngle(5);
 				if(e.getKeyCode() ==37 || e.getKeyCode() == 65)
 					tank.moveTank(-5,0);
+				control.update();
 			}
 			public void keyReleased(KeyEvent e) {}
 		});
@@ -53,6 +59,33 @@ public class Game extends JFrame{
 			public void mouseExited(MouseEvent e) {}
 		});
 		setFocusable(true);
+	}
+	
+	private JMenu createFileMenu(){
+		JMenu menu = new JMenu("File");
+		menu.add(createChallengeItem());
+		menu.add(createFileExitItem());
+		return menu;
+	}
+	private JMenuItem createChallengeItem(){
+		JMenuItem notes = new JMenuItem("Challenge");
+		class MenuItemListener implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+
+			}
+		}
+		notes.addActionListener(new MenuItemListener());
+		return notes;
+	} 
+	private JMenuItem createFileExitItem(){
+		JMenuItem item = new JMenuItem("Exit");
+		class MenuItemListener implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				System.exit(0);
+			}
+		}
+		item.addActionListener(new MenuItemListener());
+		return item;
 	}
 	
 	public static void main(String[] args){		

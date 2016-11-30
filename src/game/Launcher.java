@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 
 public class Launcher{
 	private Point position, justTheTip;
-	private int angle;
+	private int angle, score;
 	private double initialVelocity;
 	private ArrayList<Projectile> missles;
 	private static final int LENGTH_ARM = 15, BARREL_X_ADJ = 30, BARREL_Y_ADJ = -8;
@@ -23,6 +23,7 @@ public class Launcher{
 		position = new Point(x, y);
 		initialVelocity = 50;
 		missles = new ArrayList<Projectile>();
+		score = 0;
 	}
 
 	public void showTrajectory(Graphics g, int percent){
@@ -38,6 +39,7 @@ public class Launcher{
 			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
 			g.fillOval((int)x,(int)y, 2, 2);
 		}
+		score = 0;
 	}
 
 	public void draw(Graphics g){
