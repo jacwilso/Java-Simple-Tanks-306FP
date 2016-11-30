@@ -38,7 +38,7 @@ public class Game extends JFrame{
 		addKeyListener(new KeyListener(){
 			public void keyTyped(KeyEvent e) {}
 			public void keyPressed(KeyEvent e) {
-				System.out.println(e.getKeyCode());
+				//System.out.println(e.getKeyCode());
 				if(e.getKeyCode() == 40 || e.getKeyCode() == 83)
 					tank.moveAngle(-5);
 				if(e.getKeyCode() == 39 || e.getKeyCode() == 68)

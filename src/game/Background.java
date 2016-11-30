@@ -72,15 +72,14 @@ public class Background extends JComponent{
 		g.fillRect(0,height-50,width,50);
 		//draw tank
 		tank.draw(g);
-		if(!target.isHit())
-			target.draw(g);
+		target.draw(g);
 	}
 	
 	public void update(){
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
 		if(tank.collisionDetection(target.getPosition())){
-			target.hit();
+			target.hit(width, height);
 		}
 		repaint();
 	}
