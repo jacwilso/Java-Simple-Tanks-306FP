@@ -80,7 +80,6 @@ public class Projectile{
 				return true;
 			}
 		}
-		
 		return false;
 	}
 }

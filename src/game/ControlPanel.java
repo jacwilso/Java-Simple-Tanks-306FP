@@ -112,8 +112,8 @@ public class ControlPanel extends JPanel{
 					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
 					velocity.setText(tank.getInitialVelocity()+"");
 				}
-				
 			}
+			
 			if(e.getSource().equals(angle)){
 				try{
 				int angleValue = Integer.valueOf(angle.getText());
@@ -128,16 +128,6 @@ public class ControlPanel extends JPanel{
 				}
 			}		
 		}
-		
-	}
-		
-	public void updateDisplayAngle(){
-
-	}
-	public void updateDisplayPower(){
-
-	}
-	public void updateScore(){
 		
 	}
 }

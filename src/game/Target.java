@@ -3,18 +3,16 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Random;
 
 public class Target {
 	private Point position;
-	private boolean hit;
 	private static final int SIZE = 10;
 	
 	public Target(){
-		hit = false;
 		position = new Point(100,260);
 	}
 	public Target(Point position){
-		hit = false;
 		this.position = position;
 	}
 	
@@ -29,11 +27,9 @@ public class Target {
 		return position;
 	}
 	
-	public void hit() {
-		hit = true;
-	}
-	
-	public boolean isHit() {
-		return hit;
+	public void hit(int width, int height) {
+		Random rand = new Random();
+		position.x = rand.nextInt(width);
+		position.y = rand.nextInt(height);
 	}
 }
