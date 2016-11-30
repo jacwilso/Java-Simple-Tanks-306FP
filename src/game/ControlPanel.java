@@ -103,6 +103,10 @@ public class ControlPanel extends JPanel{
 				double velocityValue = Double.parseDouble(velocity.getText());
 				tank.changeVelocity(velocityValue);
 				velocity.setText(tank.getInitialVelocity() +"");
+				velocity.setFocusable(false);
+				velocity.setFocusable(true);
+				angle.setFocusable(false);
+				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
@@ -115,6 +119,8 @@ public class ControlPanel extends JPanel{
 				int angleValue = Integer.valueOf(angle.getText());
 				tank.changeAngle(angleValue);
 				angle.setText(tank.getAngle() +"");
+				angle.setFocusable(false);
+				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Angle must be an integer.");
