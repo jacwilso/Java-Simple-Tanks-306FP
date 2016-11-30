@@ -39,7 +39,6 @@ public class Launcher{
 			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
 			g.fillOval((int)x,(int)y, 2, 2);
 		}
-		score = 0;
 	}
 
 	public void draw(Graphics g){
@@ -111,9 +110,24 @@ public class Launcher{
 		for(Projectile proj : missles)
 			if(proj.collisionDetection(target)){
 				//missles.remove(proj);
+				score += 100;
 				return true;
 			}
 		return false;
+	}
+	
+	public boolean tankCollisionDetection(Point self) {
+		for(Projectile proj : missles)
+			if(proj.tankCollisionDetection(self)){
+				//missles.remove(proj);
+				score -= 100;
+				return true;
+			}
+		return false;
+	}
+
+	public String getScore() {
+		return new Integer(score).toString();
 	}
 		
 }

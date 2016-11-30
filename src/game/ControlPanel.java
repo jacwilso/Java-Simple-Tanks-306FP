@@ -69,6 +69,7 @@ public class ControlPanel extends JPanel{
 	public void update(){
 		velocity.setText(tank.getInitialVelocity() +"");
 		angle.setText(tank.getAngle() +"");
+		score.setText(tank.getScore());
 	}
 	
 	private class ButtonListener implements ActionListener{
@@ -92,7 +93,6 @@ public class ControlPanel extends JPanel{
 				tank.changeAngle(tank.getAngle() + 5);
 				angle.setText(tank.getAngle() +"");
 			}
-
 		}
 	}
 	
@@ -103,17 +103,17 @@ public class ControlPanel extends JPanel{
 				double velocityValue = Double.parseDouble(velocity.getText());
 				tank.changeVelocity(velocityValue);
 				velocity.setText(tank.getInitialVelocity() +"");
+				angle.setFocusable(false);
 				velocity.setFocusable(false);
 				velocity.setFocusable(true);
-				angle.setFocusable(false);
 				angle.setFocusable(true);
 				}
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
 					velocity.setText(tank.getInitialVelocity()+"");
 				}
-				
 			}
+			
 			if(e.getSource().equals(angle)){
 				try{
 				int angleValue = Integer.valueOf(angle.getText());
@@ -128,16 +128,6 @@ public class ControlPanel extends JPanel{
 				}
 			}		
 		}
-		
-	}
-		
-	public void updateDisplayAngle(){
-
-	}
-	public void updateDisplayPower(){
-
-	}
-	public void updateScore(){
 		
 	}
 }

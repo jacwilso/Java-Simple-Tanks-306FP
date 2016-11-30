@@ -47,6 +47,8 @@ public class Game extends JFrame{
 					tank.moveAngle(5);
 				if(e.getKeyCode() ==37 || e.getKeyCode() == 65)
 					tank.moveTank(-5,0);
+				if(e.getKeyCode() == 10 || e.getKeyCode() == 32)
+					tank.addProjectile();
 				control.update();
 			}
 			public void keyReleased(KeyEvent e) {}
