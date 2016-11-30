@@ -31,8 +31,8 @@ public class Game extends JFrame{
 		setJMenuBar(menuBar);
 		menuBar.add(createFileMenu());
 		tank = new Launcher(0,0);
-		background = new Background(800,350, tank);
 		control = new ControlPanel(tank);
+		background = new Background(800,350, tank, control);
 		add(background,BorderLayout.CENTER);
 		add(control,BorderLayout.SOUTH);
 		addKeyListener(new KeyListener(){

@@ -24,7 +24,7 @@ public class Background extends JComponent{
 	private Target target;
 
 	
-	public Background(int width, int height, Launcher tank){
+	public Background(int width, int height, Launcher tank, ControlPanel control){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
@@ -35,6 +35,7 @@ public class Background extends JComponent{
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
+				control.update();
 				repaint();
 			}
 		});

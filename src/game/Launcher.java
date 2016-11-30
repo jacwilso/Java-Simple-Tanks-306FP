@@ -14,7 +14,7 @@ public class Launcher{
 	private Point position, justTheTip;
 	private int angle, score;
 	private double initialVelocity;
-	private ArrayList<Projectile> missles;
+	private ArrayList<Projectile> missles,clean;
 	private static final int LENGTH_ARM = 15, BARREL_X_ADJ = 30, BARREL_Y_ADJ = -8;
 	public static final double GRAVITY = 9.8;
 	
@@ -23,6 +23,7 @@ public class Launcher{
 		position = new Point(x, y);
 		initialVelocity = 50;
 		missles = new ArrayList<Projectile>();
+		clean = new ArrayList<Projectile>();
 		score = 0;
 	}
 
@@ -55,9 +56,14 @@ public class Launcher{
 		for(Projectile proj : missles){
 			if(!proj.isFinished())		// SHOULD CHANGE THIS
 				proj.draw(g);
-			//if(proj.isFinished())
-				//missles.remove(proj);
+			else{
+				clean.add(proj);
+			}
 		}
+		for (Projectile p : clean){
+			missles.remove(p);
+		}
+		clean.clear();
 	}
 	
 	public void addProjectile(){
@@ -129,5 +135,6 @@ public class Launcher{
 	public String getScore() {
 		return new Integer(score).toString();
 	}
+	
 		
 }
