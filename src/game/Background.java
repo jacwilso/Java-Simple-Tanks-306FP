@@ -80,8 +80,6 @@ public class Background extends JComponent{
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
 		if(tank.collisionDetection(target.getPosition())){
-			System.out.println("HIT");
-			//add points
 			target.hit();
 		}
 		repaint();
