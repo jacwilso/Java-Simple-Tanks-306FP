@@ -70,4 +70,14 @@ public class Projectile{
 		}
 		return false;
 	}
+	
+	public boolean tankCollisionDetection(Point self) {
+		if(!finished){
+			if(((positionX<self.x+50)&&(positionX>self.x)&&(positionY<self.y+20)&&(positionY>self.y))||((positionX<self.x+35)&&(positionX>self.x+15)&&(positionY<self.y)&&(positionY>self.y-10))){
+				finished = true;
+				return true;
+			}
+		}
+		return false;
+	}
 }
