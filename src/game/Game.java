@@ -12,6 +12,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Game extends JFrame{
 	private Launcher tank;
@@ -25,6 +28,9 @@ public class Game extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(new Dimension(800,700));
 		setLayout(new GridLayout(2,0));
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		menuBar.add(createFileMenu());
 		tank = new Launcher(0,0);
 		background = new Background(800,350, tank);
 		control = new ControlPanel(tank);
@@ -53,6 +59,33 @@ public class Game extends JFrame{
 			public void mouseExited(MouseEvent e) {}
 		});
 		setFocusable(true);
+	}
+	
+	private JMenu createFileMenu(){
+		JMenu menu = new JMenu("File");
+		menu.add(createChallengeItem());
+		menu.add(createFileExitItem());
+		return menu;
+	}
+	private JMenuItem createChallengeItem(){
+		JMenuItem notes = new JMenuItem("Challenge");
+		class MenuItemListener implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+
+			}
+		}
+		notes.addActionListener(new MenuItemListener());
+		return notes;
+	} 
+	private JMenuItem createFileExitItem(){
+		JMenuItem item = new JMenuItem("Exit");
+		class MenuItemListener implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				System.exit(0);
+			}
+		}
+		item.addActionListener(new MenuItemListener());
+		return item;
 	}
 	
 	public static void main(String[] args){		
