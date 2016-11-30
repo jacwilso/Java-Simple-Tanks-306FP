@@ -2,6 +2,8 @@ package game;
 
 import java.awt.GridLayout;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,6 +23,10 @@ public class Challenge extends JDialog{
 	public static ArrayList<Integer> angleOptions;
 	private Point tip;
 	private double initialVelocity;
+	private JButton ok;
+	private JButton cancel;
+	private JPanel buttons;
+	JPanel options;
 	
 	public Challenge(Point t){
 		angleOptions = new ArrayList<Integer>();
@@ -39,23 +45,27 @@ public class Challenge extends JDialog{
 		
 	}
 	public void display(){
-		setSize(300,300);
-		setLayout(new GridLayout(3,0));
+		setSize(400,200);
+		setLayout(new GridLayout(0,1));
 		setTitle("Challenge Activity");
-		add(new JTextField("Pick the angle that will hit the \n target with an initial velocity of 50m/s"));
+		add(new JTextField("Pick the angle that will hit the target with an initial velocity of 50m/s"));
 		updateAngleButtons();
-		JPanel options = new JPanel();
-		add(angle1);
-		add(angle2);
-		add(angle3);
+		options = new JPanel();
+		options.setLayout(new GridLayout(0,3));
+		options.add(angle1);
+		options.add(angle2);
+		options.add(angle3);
+		add(options);
 		ButtonGroup angles = new ButtonGroup();
 		angles.add(angle1);
 		angles.add(angle2);
 		angles.add(angle3);	
-		JButton ok = new JButton("Ok");
-		JButton cancel = new JButton("Cancel");
-		add(ok);
-		add(cancel);
+		buttons = new JPanel();
+		ok = new JButton("Ok");
+		cancel = new JButton("Cancel");
+		buttons.add(ok);
+		buttons.add(cancel);
+		add(buttons);
 		
 		
 	}
@@ -72,7 +82,19 @@ public class Challenge extends JDialog{
 		
 	}
 	
-	
+	private class ButtonListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource().equals(ok)){
+				
+			}
+			if(e.getSource().equals(cancel)){
+				setVisible(false);
+			}
+			
+		}
+		
+	}
 	
 	
 }
