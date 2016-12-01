@@ -34,4 +34,8 @@ public class Target {
 		position.x = rand.nextInt(width-2*SIZE) + SIZE;
 		position.y = rand.nextInt(height-2*SIZE) + SIZE;
 	}
+	
+	public void setPosition(Point p){
+		position = p;
+	}
 }

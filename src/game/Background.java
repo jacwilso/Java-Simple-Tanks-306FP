@@ -116,4 +116,12 @@ public class Background extends JComponent{
 	public void changeTankAngle(int a){
 		tank.changeAngle(a);
 	}
+	
+	public void changeTargetPosition(Point tarPosition){
+		target.setPosition(tarPosition);
+		repaint();
+	}
+	
+	
+		
 }
