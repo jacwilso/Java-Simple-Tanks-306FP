@@ -74,6 +74,8 @@ public class Game extends JFrame{
 		class MenuItemListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				Challenge challenge = new Challenge(tank.getTip());
+				background.changeTargetPosition(challenge.getTargetPosition());
+				background.changeTankAngle(challenge.getAngle());
 				challenge.setVisible(true);
 			}
 		}

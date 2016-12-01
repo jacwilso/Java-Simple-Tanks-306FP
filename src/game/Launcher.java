@@ -43,6 +43,7 @@ public class Launcher{
 	}
 
 	public void draw(Graphics g){
+		System.out.println(angle);
 		g.setColor(Color.gray);
 		g.fillRect(position.x, position.y, 50, 20);
 		g.setColor(Color.darkGray);
@@ -136,5 +137,6 @@ public class Launcher{
 		return new Integer(score).toString();
 	}
 	
+
 		
 }

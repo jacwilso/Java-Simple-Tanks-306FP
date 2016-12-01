@@ -26,13 +26,14 @@ public class Challenge extends JDialog{
 	private JButton ok;
 	private JButton cancel;
 	private JPanel buttons;
-	JPanel options;
+	private JPanel options;
+	private int angle = 45;
 	
 	public Challenge(Point t){
 		angleOptions = new ArrayList<Integer>();
 		for(int i = 0; i <= 90; i++){
 			
-			if(i == 45 ){
+			if(i == 35 ){
 				continue;
 			}
 			angleOptions.add((Integer)(i));
@@ -40,7 +41,7 @@ public class Challenge extends JDialog{
 		Collections.shuffle(angleOptions);
 		tip = new Point(t.x,t.y);
 		this.initialVelocity = 50;
-		targetPosition = new Point((int)(50*Math.cos(Math.toRadians(45))* 5 + tip.x), (int) (50* Math.sin(Math.toRadians(45))* 5 + tip.y - .5*9.8*25));
+		targetPosition = new Point((int)(50*Math.cos(Math.toRadians(35))* 5 + tip.x), (int) (50* Math.sin(Math.toRadians(35))* 5 + tip.y - .5*9.8*25));
 		display();
 		
 	}
@@ -66,6 +67,8 @@ public class Challenge extends JDialog{
 		buttons.add(ok);
 		buttons.add(cancel);
 		add(buttons);
+		ok.addActionListener(new ButtonListener());
+		cancel.addActionListener(new ButtonListener());
 		
 		
 	}
@@ -77,8 +80,7 @@ public class Challenge extends JDialog{
 	public void updateAngleButtons(){
 		angle1= new JRadioButton(angleOptions.get(0).toString());
 		angle2 = new JRadioButton(angleOptions.get(35).toString());
-		Collections.shuffle(angleOptions);
-		angle3 = new JRadioButton("45");
+		angle3 = new JRadioButton("35");
 		
 	}
 	
@@ -86,7 +88,18 @@ public class Challenge extends JDialog{
 
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(ok)){
-				
+				if(angle1.isSelected()){
+					angle = angleOptions.get(0);
+				}
+				else if(angle2.isSelected()){
+					angle = angleOptions.get(35);
+				}
+				else if(angle3.isSelected()){
+					angle = 35;
+				}
+				Collections.shuffle(angleOptions);
+				System.out.println(angle);
+				setVisible(false);
 			}
 			if(e.getSource().equals(cancel)){
 				setVisible(false);
@@ -94,6 +107,10 @@ public class Challenge extends JDialog{
 			
 		}
 		
+	}
+	
+	public int getAngle(){
+		return angle;
 	}
 	
 	
