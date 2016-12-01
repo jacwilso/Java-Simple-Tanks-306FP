@@ -22,14 +22,17 @@ public class Challenge extends JDialog{
 	private static Point targetPosition;
 	public static ArrayList<Integer> angleOptions;
 	private Point tip;
-	private double initialVelocity;
 	private JButton ok;
 	private JButton cancel;
 	private JPanel buttons;
 	private JPanel options;
-	private int angle = 45;
+	private int angle;
+	private Launcher tank;
+	public static final double GRAVITY = 9.8;
 	
-	public Challenge(Point t){
+	
+	public Challenge(Launcher tank){
+		this.tank = tank;
 		angleOptions = new ArrayList<Integer>();
 		for(int i = 0; i <= 90; i++){
 			
@@ -39,9 +42,9 @@ public class Challenge extends JDialog{
 			angleOptions.add((Integer)(i));
 		}
 		Collections.shuffle(angleOptions);
-		tip = new Point(t.x,t.y);
-		this.initialVelocity = 50;
-		targetPosition = new Point((int)(50*Math.cos(Math.toRadians(35))* 5 + tip.x), (int) (50* Math.sin(Math.toRadians(35))* 5 + tip.y - .5*9.8*25));
+		tip = tank.getTip();
+		tank.changeVelocity(50);
+		targetPosition = new Point((int)(50*Math.cos(Math.toRadians(35))* 5 + tip.x), (int) (50* Math.sin(Math.toRadians(35))* 5 + tip.y - .5*GRAVITY*25));
 		display();
 		
 	}
@@ -98,7 +101,7 @@ public class Challenge extends JDialog{
 					angle = 35;
 				}
 				Collections.shuffle(angleOptions);
-				System.out.println(angle);
+				tank.changeAngle(angle);
 				setVisible(false);
 			}
 			if(e.getSource().equals(cancel)){
@@ -112,6 +115,7 @@ public class Challenge extends JDialog{
 	public int getAngle(){
 		return angle;
 	}
+	
 	
 	
 }

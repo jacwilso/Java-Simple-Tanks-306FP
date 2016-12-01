@@ -29,10 +29,10 @@ public class Game extends JFrame{
 		setSize(new Dimension(800,450));
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		menuBar.add(createFileMenu());
 		tank = new Launcher(0,0);
 		control = new ControlPanel(tank);
 		background = new Background(800,350, tank, control);
+		menuBar.add(createFileMenu());
 		add(background,BorderLayout.CENTER);
 		add(control,BorderLayout.SOUTH);
 		addKeyListener(new KeyListener(){
@@ -73,10 +73,10 @@ public class Game extends JFrame{
 		JMenuItem notes = new JMenuItem("Challenge");
 		class MenuItemListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				Challenge challenge = new Challenge(tank.getTip());
+				Challenge challenge = new Challenge(tank);
 				background.changeTargetPosition(challenge.getTargetPosition());
-				background.changeTankAngle(challenge.getAngle());
 				challenge.setVisible(true);
+				control.update();
 			}
 		}
 		notes.addActionListener(new MenuItemListener());
