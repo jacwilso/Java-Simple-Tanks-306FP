@@ -44,7 +44,6 @@ public class FunctionalityTests {
 		assertEquals(projectile.getvX(),1.0, 0.001);
 		assertEquals(projectile.getvY(), 1.0, 0.001);
 		projectile.update();
-		System.out.println(projectile.getPositionX());
 		assertEquals(projectile.getPositionX(),1.0,0.001);
 		assertEquals(projectile.getPositionY(),1.0,0.001);
 		assertEquals(projectile.getvX(),1.0, 0.001);
@@ -56,8 +55,6 @@ public class FunctionalityTests {
 		Point p1 = target.getPosition();
 		target.hit(100,100);
 		Point p2 = target.getPosition();
-		System.out.println(p1.x + " " + p1.y);
-		System.out.println(target.getPosition().x + " " + target.getPosition().y);
 		assertFalse(p1.x == p2.x);
 		assertFalse(p1.y == p2.y);
 		
