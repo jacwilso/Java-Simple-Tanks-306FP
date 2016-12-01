@@ -22,20 +22,24 @@ public class Background extends JComponent{
 	private int cloudX, cloudY;
 	private Launcher tank;
 	private Target target;
-
+	private boolean ground[][];
 	
 	public Background(int width, int height, Launcher tank, ControlPanel control){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
+		ground = new boolean[width][50];
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				ground[i][j]=true;
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
 		target = new Target();
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				control.update();
+				//control.update();
 				repaint();
 			}
 		});
@@ -81,7 +85,11 @@ public class Background extends JComponent{
 		g2.draw(new Line2D.Float(0, 0, 60, 45));
 		/*** Ground ***/
 		g.setColor(Color.GREEN);
-		g.fillRect(0,height-50,width,50);
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				if(ground[i][j])
+					g.fillRect(i, height-50+j, 1, 1);
+		//g.fillRect(0,height-50,width,50);
 		//draw tank
 		tank.draw(g);
 		target.draw(g);
@@ -96,6 +104,12 @@ public class Background extends JComponent{
 		if(tank.tankCollisionDetection(tank.getLocation())){
 			System.out.println("You shot yourself dumby");
 		}
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j))){
+					ground[i][j]=false;
+					break;
+				}
 		repaint();
 	}
 	
