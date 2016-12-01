@@ -31,8 +31,8 @@ public class Target {
 	
 	public void hit(int width, int height) {
 		Random rand = new Random();
-		position.x = rand.nextInt(width);
-		position.y = rand.nextInt(height);
+		position.x = rand.nextInt(width-2*SIZE) + SIZE;
+		position.y = rand.nextInt(height-2*SIZE) + SIZE;
 	}
 	
 	public void setPosition(Point p){
