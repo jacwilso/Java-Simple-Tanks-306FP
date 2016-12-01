@@ -23,13 +23,17 @@ public class Background extends JComponent{
 	private Launcher tank;
 	private Target target;
 	private Bird bird;
-
+	private boolean ground[][];
 	
 	public Background(int width, int height, Launcher tank, ControlPanel control){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
+		ground = new boolean[width][50];
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				ground[i][j]=true;
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
 		this.bird = new Bird();
@@ -38,7 +42,7 @@ public class Background extends JComponent{
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				control.update();
+				//control.update();
 				repaint();
 			}
 		});
@@ -86,6 +90,12 @@ public class Background extends JComponent{
 		g.setColor(Color.GREEN);
 		g.fillRect(0,height-50,width,50);
 		/*** Tank ***/
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				if(ground[i][j])
+					g.fillRect(i, height-50+j, 1, 1);
+		//g.fillRect(0,height-50,width,50);
+		//draw tank
 		tank.draw(g);
 		target.draw(g);
 		/*** Bird ***/
@@ -100,23 +110,37 @@ public class Background extends JComponent{
 	public void update(){
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
-		
+		//Target Collision Detection
 		if(tank.collisionDetection(target.getPosition())){
 			target.hit(width, height);
 		}
-		
+		//Self Collision Detection
 		tank.tankCollisionDetection(tank.getLocation());
-		
+		//Bird Collision Detection
 		if(bird.isFlying()){
 			if(tank.birdCollisionDetection(bird.getLocation())){
 				bird.kill();
 			}
 		}
-		
+		//Ground Detection
+		for(int i=0; i<width; i++)
+			for(int j=0; j<50; j++)
+				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j))){
+					ground[i][j]=false;
+					break;
+				}
 		repaint();
 	}
 	
 	public void changeTankAngle(int a){
 		tank.changeAngle(a);
 	}
+	
+	public void changeTargetPosition(Point tarPosition){
+		target.setPosition(tarPosition);
+		repaint();
+	}
+	
+	
+		
 }

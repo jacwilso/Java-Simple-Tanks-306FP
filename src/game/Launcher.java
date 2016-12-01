@@ -33,7 +33,7 @@ public class Launcher{
 		double tFinal = vY/GRAVITY + Math.sqrt(Math.pow(vY/GRAVITY,2) + 2*(position.y-justTheTip.y)/GRAVITY);
 		double x = justTheTip.x + vX * tFinal;
 		double y = justTheTip.y -  vY * tFinal + 0.5*GRAVITY*Math.pow(tFinal,2);
-		g.fillOval((int)x,(int)y, 15, 15);
+		g.fillOval((int)(x+2),(int)(y+6), 7, 7);
 		for(int i=1; i<=percent; i++){
 			x = justTheTip.x + vX * i*tFinal/(double)100;
 			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
@@ -42,6 +42,7 @@ public class Launcher{
 	}
 
 	public void draw(Graphics g){
+		System.out.println(angle);
 		g.setColor(Color.gray);
 		g.fillRect(position.x, position.y, 50, 20);
 		g.setColor(Color.darkGray);
@@ -136,5 +137,6 @@ public class Launcher{
 		return false;
 	}
 	
+
 		
 }

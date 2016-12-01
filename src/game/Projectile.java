@@ -38,6 +38,22 @@ public class Projectile{
 		timer.start();
 	}
 	
+	public double getPositionX() {
+		return positionX;
+	}
+
+	public double getPositionY() {
+		return positionY;
+	}
+
+	public double getvX() {
+		return vX;
+	}
+
+	public double getvY() {
+		return vY;
+	}
+
 	public void update(){
 		if(percent > 103){ 
 			finished = true;
