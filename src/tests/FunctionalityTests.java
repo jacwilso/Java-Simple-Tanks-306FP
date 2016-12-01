@@ -6,12 +6,9 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 
-<<<<<<< HEAD
-=======
 import game.Background;
 import game.Bird;
 import game.ControlPanel;
->>>>>>> 92d7f1bf89807569a51d66d63ab59a3e30eae7b7
 import game.Game;
 import game.Launcher;
 import game.Projectile;
@@ -27,28 +24,26 @@ public class FunctionalityTests {
 		launcher = new Launcher(30, 30);
 	}
 	
-	//DD- Launcher updates: test the launcher angle barrel changes with a change of angle
-	//DD- Launcher move: test the position of the launcher moves
-	//DD- Launcher trajectory: test the trajectory is displayed accurately
-	//DD- Projectile trajectory: projectile follows trajectory given angle and velocity
+	//Tests created
+	//DD- Target
+		//
 	
 	//DONE CS- Control gui score: test with a collision, the score is increased
 	
-	//DM- Control gui increase power: test the power value increases
-	//DM- Control gui power display: test the display is updated with a change of value
-	//DM- Control gui increase angle: test the angle value is increased
-	//DM- Control gui decrease angle: test the angle value is decreased
-	
-	//JW- Control gui edit text angle: test the angle value is changed appropriately
-	//JW- Control gui text angle: test the angle display is updated accordingly
 	//JW- Target position: test the target is drawn properly, in the proper location
 	//JW- Target collision: test given an angle, power and target location, does the projectile collide
 	
-	//Craig Notes
+	//Craig Notes (Same with the ones for DM and JW)
 	//Didn't Rader say that the tests like the ones below can just be tested by running the program? As in no JUnit.
 	//CS- Control gui fire: test the projectile is launched
 	//CS- Control gui score text field: test the score field updates the display
 	//CS- Control gui decrease power: test the power value decreases
+	//DM- Control gui increase power: test the power value increases
+	//DM- Control gui power display: test the display is updated with a change of value
+	//DM- Control gui increase angle: test the angle value is increased
+	//DM- Control gui decrease angle: test the angle value is decreased	
+	//JW- Control gui edit text angle: test the angle value is changed appropriately
+	//JW- Control gui text angle: test the angle display is updated accordingly
 	
 	@Test
 	public void launcherTests(){
@@ -113,4 +108,6 @@ public class FunctionalityTests {
 			tank.addScore(-50);
 		assertTrue(tank.getScoreValue() == -50);
 	}
+	
+	
 }
