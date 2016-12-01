@@ -65,6 +65,10 @@ public class Launcher{
 		missiles.add(new Projectile(justTheTip, position.y, initialVelocity, angle));
 	}
 	
+	public void addProjectile(Projectile missile){
+		missiles.add(missile);
+	}
+	
 	public int getAngle(){
 		return angle;
 	}
@@ -116,15 +120,19 @@ public class Launcher{
 		return false;
 	}
 	
-	public void tankCollisionDetection(Point self) {
+	public void tankCollisionDetection() {
 		for(Projectile proj : missiles)
-			if(proj.tankCollisionDetection(self)){
+			if(proj.tankCollisionDetection(position)){
 				score -= 100;
 			}
 	}
 
 	public String getScore() {
 		return new Integer(score).toString();
+	}
+	
+	public int getScoreValue(){
+		return score;
 	}
 
 	public void addScore(int i) {
