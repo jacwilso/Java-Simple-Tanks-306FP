@@ -21,6 +21,24 @@ public class FunctionalityTests {
 		launcher = new Launcher(30, 30);
 	}
 	
+	//DD- Launcher updates: test the launcher angle barrel changes with a change of angle
+	//DD- Launcher move: test the position of the launcher moves
+	//DD- Launcher trajectory: test the trajectory is displayed accurately
+	//DD- Projectile trajectory: projectile follows trajectory given angle and velocity
+	//CS- Control gui fire: test the projectile is launched
+	//CS- Control gui score: test with a collision, the score is increased
+	//CS- Control gui score text field: test the score field updates the display
+	//CS- Control gui decrease power: test the power value decreases
+	//DM- Control gui increase power: test the power value increases
+	//DM- Control gui power display: test the display is updated with a change of value
+	//DM- Control gui increase angle: test the angle value is increased
+	//DM- Control gui decrease angle: test the angle value is decreased
+	//JW- Control gui edit text angle: test the angle value is changed appropriately
+	//JW- Control gui text angle: test the angle display is updated accordingly
+	//JW- Target position: test the target is drawn properly, in the proper location
+	//JW- Target collision: test given an angle, power and target location, does the projectile collide
+
+	
 	@Test
 	public void launcherTests(){
 		launcher.changeAngle(15);

@@ -28,6 +28,10 @@ public class GUITests {
 		control = new ControlPanel(tank);
 		background = new Background(800,350,tank,control);
 	}
+	//DM- Control gui increase power: test the power value increases
+	//DM- Control gui power display: test the display is updated with a change of value
+	//DM- Control gui increase angle: test the angle value is increased
+	//DM- Control gui decrease angle: test the angle value is decreased
 	
 	@Test
 	public void TestControlGUI(){
@@ -62,5 +66,25 @@ public class GUITests {
 		frame.setVisible(true);
 		Scanner in = new Scanner(System.in);
 		in.nextLine();
+	}
+	
+	@Test
+	public void increasePower(){
+		
+	}
+	
+	@Test
+	public void powerDisplay(){
+		
+	}
+	
+	@Test
+	public void increaseAngle(){
+		
+	}
+	
+	@Test
+	public void decreaseAngle(){
+		
 	}
 }
