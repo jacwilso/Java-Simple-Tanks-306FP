@@ -57,4 +57,9 @@ public class Bird {
 	public Point getLocation() {
 		return new Point(x,y);
 	}
+	
+	public void setLocation(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
 }

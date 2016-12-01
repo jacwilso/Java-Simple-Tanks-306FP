@@ -19,7 +19,6 @@ import javax.swing.JMenuItem;
 public class Game extends JFrame{
 	private Launcher tank;
 	private Background background;
-	private Obstacle obstacle;
 	private ControlPanel control;
 	private boolean challenge;
 	private Challenge challengeGui; 
