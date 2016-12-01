@@ -14,7 +14,7 @@ public class Launcher{
 	private Point position, justTheTip;
 	private int angle, score;
 	private double initialVelocity;
-	private ArrayList<Projectile> missles,clean;
+	private ArrayList<Projectile> missiles;
 	private static final int LENGTH_ARM = 15, BARREL_X_ADJ = 30, BARREL_Y_ADJ = -8;
 	public static final double GRAVITY = 9.8;
 	
@@ -22,8 +22,7 @@ public class Launcher{
 		angle = 45;
 		position = new Point(x, y);
 		initialVelocity = 50;
-		missles = new ArrayList<Projectile>();
-		clean = new ArrayList<Projectile>();
+		missiles = new ArrayList<Projectile>();
 		score = 0;
 	}
 
@@ -53,21 +52,17 @@ public class Launcher{
 		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
 		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
 		showTrajectory(g, 40);
-		for(Projectile proj : missles){
-			if(!proj.isFinished())		// SHOULD CHANGE THIS
-				proj.draw(g);
-			else{
-				clean.add(proj);
+		for (int i = 0; i <missiles.size(); i++){
+			missiles.get(i).draw(g);
+			if(missiles.get(i).isFinished()){
+				missiles.remove(i);
+				i--;
 			}
 		}
-		for (Projectile p : clean){
-			missles.remove(p);
-		}
-		clean.clear();
 	}
 	
 	public void addProjectile(){
-		missles.add(new Projectile(justTheTip, position.y, initialVelocity, angle));
+		missiles.add(new Projectile(justTheTip, position.y, initialVelocity, angle));
 	}
 	
 	public int getAngle(){
@@ -113,9 +108,8 @@ public class Launcher{
 	}
 
 	public boolean collisionDetection(Point target) {
-		for(Projectile proj : missles)
+		for(Projectile proj : missiles)
 			if(proj.collisionDetection(target)){
-				//missles.remove(proj);
 				score += 100;
 				return true;
 			}
@@ -123,9 +117,8 @@ public class Launcher{
 	}
 	
 	public boolean tankCollisionDetection(Point self) {
-		for(Projectile proj : missles)
+		for(Projectile proj : missiles)
 			if(proj.tankCollisionDetection(self)){
-				//missles.remove(proj);
 				score -= 100;
 				return true;
 			}
