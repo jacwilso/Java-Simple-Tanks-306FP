@@ -42,7 +42,7 @@ public class Background extends JComponent{
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				control.update();
+				//control.update();
 				repaint();
 			}
 		});
@@ -88,13 +88,11 @@ public class Background extends JComponent{
 		g2.draw(new Line2D.Float(0, 0, 60, 45));
 		/*** Ground ***/
 		g.setColor(Color.GREEN);
-		g.fillRect(0,height-50,width,50);
 		/*** Tank ***/
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
 				if(ground[i][j])
 					g.fillRect(i, height-50+j, 1, 1);
-		//g.fillRect(0,height-50,width,50);
 		//draw tank
 		tank.draw(g);
 		target.draw(g);
@@ -129,6 +127,7 @@ public class Background extends JComponent{
 			for(int j=0; j<50; j++)
 				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j),11)){
 					ground[i][j]=false;
+					//System.out.println(i+" "+j+" "+ground[i][j]);
 					break;
 				}
 		repaint();

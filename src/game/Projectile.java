@@ -55,7 +55,7 @@ public class Projectile{
 	}
 
 	public void update(){
-		if(percent > 103){ 
+		if(percent > 115){ 
 			finished = true;
 			timer.stop();
 			return;
