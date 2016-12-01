@@ -51,6 +51,11 @@ public class Launcher{
 		g2.setStroke(new BasicStroke(4));
 		justTheTip = new Point((int)(position.x + BARREL_X_ADJ + LENGTH_ARM*Math.cos(Math.toRadians(angle))), (int)(position.y + BARREL_Y_ADJ - LENGTH_ARM*Math.sin(Math.toRadians(angle))));
 		g2.draw(new Line2D.Float(position.x + BARREL_X_ADJ, position.y + BARREL_Y_ADJ, justTheTip.x, justTheTip.y));
+		g.setColor(Color.darkGray);
+		g.fillOval(position.x+1, position.y+8, 12, 12);
+		g.fillOval(position.x+13, position.y+8, 12, 12);
+		g.fillOval(position.x+25, position.y+8, 12, 12);
+		g.fillOval(position.x+37, position.y+8, 12, 12);
 		showTrajectory(g, 40);
 		for (int i = 0; i <missiles.size(); i++){
 			missiles.get(i).draw(g);
