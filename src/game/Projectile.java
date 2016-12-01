@@ -80,4 +80,13 @@ public class Projectile{
 		}
 		return false;
 	}
+
+	public boolean birdCollisionDetection(Point bird) {
+		double mag = Math.sqrt(Math.pow(bird.x-positionX,2)+Math.pow(bird.y-positionY,2));
+		if( mag < 20 ){
+			finished = true;
+			return true;
+		}
+		return false;
+	}
 }

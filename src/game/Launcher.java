@@ -116,17 +116,24 @@ public class Launcher{
 		return false;
 	}
 	
-	public boolean tankCollisionDetection(Point self) {
+	public void tankCollisionDetection(Point self) {
 		for(Projectile proj : missiles)
 			if(proj.tankCollisionDetection(self)){
 				score -= 100;
-				return true;
 			}
-		return false;
 	}
 
 	public String getScore() {
 		return new Integer(score).toString();
+	}
+
+	public boolean birdCollisionDetection(Point bird) {
+		for(Projectile proj : missiles)
+			if(proj.birdCollisionDetection(bird)){
+				score -= 50;
+				return true;
+			}
+		return false;
 	}
 	
 		

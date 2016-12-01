@@ -22,6 +22,7 @@ public class Background extends JComponent{
 	private int cloudX, cloudY;
 	private Launcher tank;
 	private Target target;
+	private Bird bird;
 
 	
 	public Background(int width, int height, Launcher tank, ControlPanel control){
@@ -31,6 +32,8 @@ public class Background extends JComponent{
 		cloudY = 100;
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
+		this.bird = new Bird();
+		bird.reset();
 		target = new Target();
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -82,20 +85,34 @@ public class Background extends JComponent{
 		/*** Ground ***/
 		g.setColor(Color.GREEN);
 		g.fillRect(0,height-50,width,50);
-		//draw tank
+		/*** Tank ***/
 		tank.draw(g);
 		target.draw(g);
+		/*** Bird ***/
+		if(bird.isFlying())
+			bird.draw(g);
+		else{
+			if(Math.random()>0.98)
+				bird.reset();
+		}
 	}
 	
 	public void update(){
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
+		
 		if(tank.collisionDetection(target.getPosition())){
 			target.hit(width, height);
 		}
-		if(tank.tankCollisionDetection(tank.getLocation())){
-			System.out.println("You shot yourself dumby");
+		
+		tank.tankCollisionDetection(tank.getLocation());
+		
+		if(bird.isFlying()){
+			if(tank.birdCollisionDetection(bird.getLocation())){
+				bird.kill();
+			}
 		}
+		
 		repaint();
 	}
 	
