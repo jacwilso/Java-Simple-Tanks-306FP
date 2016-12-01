@@ -108,8 +108,9 @@ public class Launcher{
 	}
 
 	public boolean collisionDetection(Point target, int magConstraint) {
-		for(Projectile proj : missiles)
-			if(proj.collisionDetection(target, magConstraint)){
+		for (int i = 0; i <missiles.size(); i++)
+			if(missiles.get(i).collisionDetection(target, magConstraint)){
+				//missiles.remove(i);
 				return true;
 			}
 		return false;

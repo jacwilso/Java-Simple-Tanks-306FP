@@ -36,7 +36,7 @@ public class FunctionalityTests {
 		launcher.changeVelocity(9.0);
 		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 	}
-	//@Test
+	@Test
 	public void projectileTests(){
 		Point pos = new Point(0,0);
 
