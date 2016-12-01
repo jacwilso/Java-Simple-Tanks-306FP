@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -11,6 +13,7 @@ import javax.swing.JFrame;
 
 import game.Background;
 import game.ControlPanel;
+import game.Game;
 import game.Launcher;
 import game.Projectile;
 
@@ -21,19 +24,17 @@ public class GUITests {
 	private static Launcher tank;
 	private static ControlPanel control;
 	private static Background background;
+	private static Game game;
 	
 	@BeforeClass
 	public static void setup(){
+		game = new Game();
 		tank = new Launcher(0,0);
 		control = new ControlPanel(tank);
 		background = new Background(800,350,tank,control);
 	}
-	//DM- Control gui increase power: test the power value increases
-	//DM- Control gui power display: test the display is updated with a change of value
-	//DM- Control gui increase angle: test the angle value is increased
-	//DM- Control gui decrease angle: test the angle value is decreased
 	
-	@Test
+	//@Test
 	public void TestControlGUI(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +46,7 @@ public class GUITests {
 		in.nextLine();
 	}
 	
-	@Test
+	//@Test
 	public void testBackground(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,7 +57,7 @@ public class GUITests {
 		in.nextLine();
 	}
 	
-	@Test
+	//@Test
 	public void combineGUI(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,24 +68,5 @@ public class GUITests {
 		Scanner in = new Scanner(System.in);
 		in.nextLine();
 	}
-	
-	@Test
-	public void increasePower(){
-		
-	}
-	
-	@Test
-	public void powerDisplay(){
-		
-	}
-	
-	@Test
-	public void increaseAngle(){
-		
-	}
-	
-	@Test
-	public void decreaseAngle(){
-		
-	}
+
 }

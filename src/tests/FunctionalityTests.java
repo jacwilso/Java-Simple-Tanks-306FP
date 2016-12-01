@@ -6,8 +6,6 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 
-import game.Background;
-import game.ControlPanel;
 import game.Game;
 import game.Launcher;
 import game.Projectile;
@@ -15,14 +13,12 @@ import game.Target;
 
 public class FunctionalityTests {
 	private static Game game;
-	private static Launcher tank;
-	private static ControlPanel control;
-	private static Background back;
+	private static Launcher launcher;
 
 	@BeforeClass
 	public static void setUp(){
 		game = new Game();
-		tank = new Launcher(30, 30);
+		launcher = new Launcher(30, 30);
 	}
 	
 	//DD- Launcher updates: test the launcher angle barrel changes with a change of angle
@@ -45,18 +41,18 @@ public class FunctionalityTests {
 	
 	@Test
 	public void launcherTests(){
-		tank.changeAngle(15);
-		assertEquals(tank.getAngle(), 15);
-		tank.changeAngle(9);
-		assertEquals(tank.getAngle(), 9);
+		launcher.changeAngle(15);
+		assertEquals(launcher.getAngle(), 15);
+		launcher.changeAngle(9);
+		assertEquals(launcher.getAngle(), 9);
 		Point p = new Point(2,2);
-		tank.move(p);
-		assertEquals(tank.getLocation().x, p.x);
-		assertEquals(tank.getLocation().y, p.y);
-		tank.changeVelocity(15.0);
-		assertEquals(tank.getInitialVelocity(), 15.0, 0.01); 
-		tank.changeVelocity(9.0);
-		assertEquals(tank.getInitialVelocity(), 9.0, 0.01);
+		launcher.move(p);
+		assertEquals(launcher.getLocation().x, p.x);
+		assertEquals(launcher.getLocation().y, p.y);
+		launcher.changeVelocity(15.0);
+		assertEquals(launcher.getInitialVelocity(), 15.0, 0.01); 
+		launcher.changeVelocity(9.0);
+		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 	}
 	@Test
 	public void projectileTests(){

@@ -130,4 +130,8 @@ public class ControlPanel extends JPanel{
 		}
 		
 	}
+	
+	public double getVelocity(){
+		return tank.getInitialVelocity();
+	}
 }
