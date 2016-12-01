@@ -22,6 +22,7 @@ public class Background extends JComponent{
 	private int cloudX, cloudY;
 	private Launcher tank;
 	private Target target;
+	private Bird bird;
 	private boolean ground[][];
 	
 	public Background(int width, int height, Launcher tank, ControlPanel control){
@@ -35,11 +36,13 @@ public class Background extends JComponent{
 				ground[i][j]=true;
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
+		this.bird = new Bird();
+		bird.reset();
 		target = new Target();
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				//control.update();
+				control.update();
 				repaint();
 			}
 		});
@@ -85,6 +88,8 @@ public class Background extends JComponent{
 		g2.draw(new Line2D.Float(0, 0, 60, 45));
 		/*** Ground ***/
 		g.setColor(Color.GREEN);
+		g.fillRect(0,height-50,width,50);
+		/*** Tank ***/
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
 				if(ground[i][j])
@@ -93,20 +98,36 @@ public class Background extends JComponent{
 		//draw tank
 		tank.draw(g);
 		target.draw(g);
+		/*** Bird ***/
+		if(bird.isFlying())
+			bird.draw(g);
+		else{
+			if(Math.random()>0.98)
+				bird.reset();
+		}
 	}
 	
 	public void update(){
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
-		if(tank.collisionDetection(target.getPosition())){
+		//Target Collision Detection
+		if(tank.collisionDetection(target.getPosition(),11)){
 			target.hit(width, height);
+			tank.addScore(100);
 		}
-		if(tank.tankCollisionDetection(tank.getLocation())){
-			System.out.println("You shot yourself dumby");
+		//Self Collision Detection
+		tank.tankCollisionDetection(tank.getLocation());
+		//Bird Collision Detection
+		if(bird.isFlying()){
+			if(tank.collisionDetection(bird.getLocation(),20)){
+				bird.kill();
+				tank.addScore(-50);
+			}
 		}
+		//Ground Detection
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
-				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j))){
+				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j),11)){
 					ground[i][j]=false;
 					break;
 				}

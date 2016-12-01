@@ -107,26 +107,28 @@ public class Launcher{
 		changeAngle(angle + a);
 	}
 
-	public boolean collisionDetection(Point target) {
+	public boolean collisionDetection(Point target, int magConstraint) {
 		for(Projectile proj : missiles)
-			if(proj.collisionDetection(target)){
-				score += 100;
+			if(proj.collisionDetection(target, magConstraint)){
 				return true;
 			}
 		return false;
 	}
 	
-	public boolean tankCollisionDetection(Point self) {
+	public void tankCollisionDetection(Point self) {
 		for(Projectile proj : missiles)
 			if(proj.tankCollisionDetection(self)){
 				score -= 100;
-				return true;
 			}
-		return false;
 	}
 
 	public String getScore() {
 		return new Integer(score).toString();
+	}
+
+	public void addScore(int i) {
+		score += i;
+		
 	}
 	
 
