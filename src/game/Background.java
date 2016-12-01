@@ -42,7 +42,7 @@ public class Background extends JComponent{
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				//control.update();
+				control.update();
 				repaint();
 			}
 		});
@@ -111,21 +111,23 @@ public class Background extends JComponent{
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
 		//Target Collision Detection
-		if(tank.collisionDetection(target.getPosition())){
+		if(tank.collisionDetection(target.getPosition(),11)){
 			target.hit(width, height);
+			tank.addScore(100);
 		}
 		//Self Collision Detection
 		tank.tankCollisionDetection(tank.getLocation());
 		//Bird Collision Detection
 		if(bird.isFlying()){
-			if(tank.birdCollisionDetection(bird.getLocation())){
+			if(tank.collisionDetection(bird.getLocation(),20)){
 				bird.kill();
+				tank.addScore(-50);
 			}
 		}
 		//Ground Detection
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
-				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j))){
+				if(ground[i][j] && tank.collisionDetection(new Point(i,height-50+j),11)){
 					ground[i][j]=false;
 					break;
 				}

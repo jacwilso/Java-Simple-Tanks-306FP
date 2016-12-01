@@ -78,9 +78,9 @@ public class Projectile{
 		g.fillOval((int)positionX, (int)positionY, 5, 5);	
 	}
 
-	public boolean collisionDetection(Point target) {
+	public boolean collisionDetection(Point target, int magConstraint) {
 		double mag = Math.sqrt(Math.pow(target.x-positionX,2)+Math.pow(target.y-positionY,2));
-		if( mag < 11 ){
+		if( mag < magConstraint ){
 			finished = true;
 			return true;
 		}
@@ -93,15 +93,6 @@ public class Projectile{
 				finished = true;
 				return true;
 			}
-		}
-		return false;
-	}
-
-	public boolean birdCollisionDetection(Point bird) {
-		double mag = Math.sqrt(Math.pow(bird.x-positionX,2)+Math.pow(bird.y-positionY,2));
-		if( mag < 20 ){
-			finished = true;
-			return true;
 		}
 		return false;
 	}

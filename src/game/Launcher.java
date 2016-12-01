@@ -108,10 +108,9 @@ public class Launcher{
 		changeAngle(angle + a);
 	}
 
-	public boolean collisionDetection(Point target) {
+	public boolean collisionDetection(Point target, int magConstraint) {
 		for(Projectile proj : missiles)
-			if(proj.collisionDetection(target)){
-				score += 100;
+			if(proj.collisionDetection(target, magConstraint)){
 				return true;
 			}
 		return false;
@@ -128,13 +127,9 @@ public class Launcher{
 		return new Integer(score).toString();
 	}
 
-	public boolean birdCollisionDetection(Point bird) {
-		for(Projectile proj : missiles)
-			if(proj.birdCollisionDetection(bird)){
-				score -= 50;
-				return true;
-			}
-		return false;
+	public void addScore(int i) {
+		score += i;
+		
 	}
 	
 
