@@ -36,25 +36,28 @@ public class FunctionalityTests {
 		launcher.changeVelocity(9.0);
 		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 	}
-	@Test
+	//@Test
 	public void projectileTests(){
 		Point pos = new Point(0,0);
 
-		Projectile projectile= new Projectile(pos, Math.sqrt(2), 45);
-		assertEquals(projectile.getVelocity().getX(),1.0, 0.001);
-		assertEquals(projectile.getVelocity().getY(), 1.0, 0.001);
+		Projectile projectile= new Projectile(pos, 0.0, Math.sqrt(2), 45);
+		assertEquals(projectile.getvX(),1.0, 0.001);
+		assertEquals(projectile.getvY(), 1.0, 0.001);
 		projectile.update();
-		assertEquals(projectile.getPosition().x,1);
-		assertEquals(projectile.getPosition().y,1);
-		assertEquals(projectile.getVelocity().getX(),1.0, 0.001);
-		assertEquals(projectile.getVelocity().getY(), -31.0, 0.001);
+		System.out.println(projectile.getPositionX());
+		assertEquals(projectile.getPositionX(),1.0,0.001);
+		assertEquals(projectile.getPositionY(),1.0,0.001);
+		assertEquals(projectile.getvX(),1.0, 0.001);
+		assertEquals(projectile.getvY(), -31.0, 0.001);
 	}
 	@Test
 	public void TargetTest(){
 		Target target = new Target();
-		Point p1 = target.getLocation();
-		target.update();
-		Point p2 = target.getLocation();
+		Point p1 = target.getPosition();
+		target.hit(100,100);
+		Point p2 = target.getPosition();
+		System.out.println(p1.x + " " + p1.y);
+		System.out.println(target.getPosition().x + " " + target.getPosition().y);
 		assertFalse(p1.x == p2.x);
 		assertFalse(p1.y == p2.y);
 		
@@ -62,15 +65,15 @@ public class FunctionalityTests {
 	@Test
 	public void GameTest(){
 		Target target2 = new Target();
-		game.setTarget(target2);
 		Point pProjTrue = new Point(20,20);
-		Projectile projectile = new Projectile(pProjTrue, 0,0);
-		assertTrue(game.collisionDetection(projectile));
+		Launcher tank = new Launcher(0,0);
+		Projectile projectile = new Projectile(pProjTrue,0,0,0);
+		assertTrue(tank.collisionDetection(pProjTrue));
 		Point pProjFalse = new Point(50,0);
-		Projectile projectile2 = new Projectile(pProjFalse, 0,0);
-		assertFalse(game.collisionDetection(projectile2));
+		Projectile projectile2 = new Projectile(pProjFalse,0,0,0);
+		assertFalse(tank.collisionDetection(pProjFalse));
 		Point pProjTrue2 = new Point(17,22);
-		Projectile projectile3 = new Projectile(pProjTrue2, 0,0);
-		assertTrue(game.collisionDetection(projectile3));	
+		Projectile projectile3 = new Projectile(pProjTrue2,0,0,0);
+		assertTrue(tank.collisionDetection(pProjTrue2));	
 	}
 }
