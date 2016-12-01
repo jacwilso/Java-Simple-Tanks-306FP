@@ -96,4 +96,8 @@ public class Projectile{
 		}
 		return false;
 	}
+	
+	public void setPercent(int per){
+		percent = per;
+	}
 }

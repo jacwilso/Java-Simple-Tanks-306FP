@@ -140,6 +140,9 @@ public class Launcher{
 		
 	}
 	
+	public ArrayList<Projectile> getMissiles(){
+		return missiles;
+	}
 
 		
 }

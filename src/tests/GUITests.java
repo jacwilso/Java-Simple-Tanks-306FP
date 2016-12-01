@@ -57,7 +57,7 @@ public class GUITests {
 		in.nextLine();
 	}
 	
-	//@Test
+	@Test
 	public void combineGUI(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

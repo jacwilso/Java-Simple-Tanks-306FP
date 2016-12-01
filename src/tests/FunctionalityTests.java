@@ -26,10 +26,15 @@ public class FunctionalityTests {
 	
 
 	
-	//DONE CS- Control gui score: test with a collision, the score is increased
+	//DONE:
+	// CS- Control gui score: test with a collision, the score is increased
+	// DD- Target: Test that when the target is hit, it moves
+	// DM- addprojectile test
+	// DM- finished projectile test
+	
 	
 	//JW- Target position: test the target is drawn properly, in the proper location
-	//JW- Target collision: test given an angle, power and target location, does the projectile collide
+	//JW- Target collision: test given an angle, power and target location, does the projectile collide -- Doesn't Craig's collision test essentially test this?
 	
 	//Craig Notes (Same with the ones for DM and JW)
 	//Didn't Rader say that the tests like the ones below can just be tested by running the program? As in no JUnit.
@@ -59,15 +64,22 @@ public class FunctionalityTests {
 		assertEquals(launcher.getInitialVelocity(), 9.0, 0.01);
 
 	}
+	
+	//Tests that the position of the projectile changes
 	@Test
 	public void projectileTests(){
 		Point pos = new Point(0,0);
 		Projectile projectile= new Projectile(pos, 0.0, Math.sqrt(2), 45);
 		assertEquals(projectile.getvX(),1.0, 0.001);
 		assertEquals(projectile.getvY(), 1.0, 0.001);
-		projectile.update(); //WHY DOESNT THIS UPDATE THE POSITION AND VELOCITY OF THE F**** PROJECTILE
-		
+		assertEquals(pos.x, projectile.getPositionX(), 0.001);
+		assertEquals(pos.y, projectile.getPositionY(), 0.001);
+		projectile.setPercent(115);
+		projectile.update(); 
+		assertNotSame(0.0, projectile.getPositionX());
+		assertNotSame(0.0, projectile.getPositionY());
 	}
+	
 	@Test
 	public void TargetTest(){
 		Target target = new Target();
@@ -105,5 +117,12 @@ public class FunctionalityTests {
 		assertTrue(tank.getScoreValue() == -50);
 	}
 	
+	//Tests the addProjectile function
+	@Test 
+	public void addProjectileTest(){
+		Projectile p = new Projectile(new Point(300, 400), 300, 50.0, 45);
+		launcher.addProjectile(p);
+		assertEquals(1, launcher.getMissiles().size());
+	}
 	
 }
