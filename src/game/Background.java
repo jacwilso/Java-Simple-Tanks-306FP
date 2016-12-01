@@ -114,7 +114,7 @@ public class Background extends JComponent{
 			tank.addScore(100);
 		}
 		//Self Collision Detection
-		tank.tankCollisionDetection(tank.getLocation());
+		tank.tankCollisionDetection();
 		//Bird Collision Detection
 		if(bird.isFlying()){
 			if(tank.collisionDetection(bird.getLocation(),20)){

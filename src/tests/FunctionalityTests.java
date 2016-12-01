@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import java.awt.Point;
 
 import game.Background;
+import game.Bird;
 import game.ControlPanel;
 import game.Game;
 import game.Launcher;
@@ -28,19 +29,24 @@ public class FunctionalityTests {
 	//DD- Launcher updates: test the launcher angle barrel changes with a change of angle
 	//DD- Launcher trajectory: test the trajectory is displayed accurately
 	//DD- Projectile trajectory: projectile follows trajectory given angle and velocity
-	//CS- Control gui fire: test the projectile is launched
-	//CS- Control gui score: test with a collision, the score is increased
-	//CS- Control gui score text field: test the score field updates the display
-	//CS- Control gui decrease power: test the power value decreases
+	
+	//DONE CS- Control gui score: test with a collision, the score is increased
+	
 	//DM- Control gui increase power: test the power value increases
 	//DM- Control gui power display: test the display is updated with a change of value
 	//DM- Control gui increase angle: test the angle value is increased
 	//DM- Control gui decrease angle: test the angle value is decreased
+	
 	//JW- Control gui edit text angle: test the angle value is changed appropriately
 	//JW- Control gui text angle: test the angle display is updated accordingly
 	//JW- Target position: test the target is drawn properly, in the proper location
 	//JW- Target collision: test given an angle, power and target location, does the projectile collide
-
+	
+	//Craig Notes
+	//Didn't Rader say that the tests like the ones below can just be tested by running the program? As in no JUnit.
+	//CS- Control gui fire: test the projectile is launched
+	//CS- Control gui score text field: test the score field updates the display
+	//CS- Control gui decrease power: test the power value decreases
 	
 	@Test
 	public void launcherTests(){
@@ -82,18 +88,29 @@ public class FunctionalityTests {
 		assertFalse(p1.y == p2.y);
 		
 	}
+	
 	@Test
-	public void GameTest(){
-		Target target2 = new Target();
-		Point pProjTrue = new Point(20,20);
-		Launcher tank = new Launcher(0,0);
-		Projectile projectile = new Projectile(pProjTrue,0,0,0);
-		assertTrue(tank.collisionDetection(pProjTrue));
-		Point pProjFalse = new Point(50,0);
-		Projectile projectile2 = new Projectile(pProjFalse,0,0,0);
-		assertFalse(tank.collisionDetection(pProjFalse));
-		Point pProjTrue2 = new Point(17,22);
-		Projectile projectile3 = new Projectile(pProjTrue2,0,0,0);
-		assertTrue(tank.collisionDetection(pProjTrue2));	
+	public void CollisionTests(){
+		//test target hit
+		Target target = new Target(new Point(200,200));
+		Projectile projectile = new Projectile(new Point(200,200), 0, 0, 0);
+		Launcher tank = new Launcher(100,100);
+		tank.addProjectile(projectile);
+		if(tank.collisionDetection(target.getPosition(),11))
+			tank.addScore(100);
+		assertTrue(tank.getScoreValue() == 100);
+		//test collision with self
+		Projectile projectile2 = new Projectile(new Point(101,101), 0, 0, 0);
+		tank.addProjectile(projectile2);
+		tank.tankCollisionDetection();
+		assertTrue(tank.getScoreValue() == 0);
+		//test collision with bird
+		Bird bird = new Bird();
+		bird.setLocation(300, 300);
+		Projectile projectile3 = new Projectile(new Point(300,300), 0, 0, 0);
+		tank.addProjectile(projectile3);
+		if(tank.collisionDetection(bird.getLocation(),11))
+			tank.addScore(-50);
+		assertTrue(tank.getScoreValue() == -50);
 	}
 }
