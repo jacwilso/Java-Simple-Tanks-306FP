@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -29,22 +30,36 @@ public class Challenge extends JDialog{
 	private int angle;
 	private Launcher tank;
 	public static final double GRAVITY = 9.8;
+	private double vX;
+	private double vY;
+	private double tFinal;
+	private Point initialPosition;
+	private ControlPanel control;
+	private double velocity;
+	private Integer randAngle;
 	
 	
-	public Challenge(Launcher tank){
+	public Challenge(Launcher tank, ControlPanel c){
+		control = c;
+		Random rand = new Random();
+		randAngle = rand.nextInt(90);
+		vX = 50*Math.cos(Math.toRadians(randAngle));
+		vY = 50* Math.sin(Math.toRadians(randAngle));
+		initialPosition = tank.getTip();
+		tFinal = vY/GRAVITY + Math.sqrt(Math.pow(vY/GRAVITY,2) + 2*(tank.getY() - initialPosition.y)/GRAVITY);
 		this.tank = tank;
 		angleOptions = new ArrayList<Integer>();
 		for(int i = 0; i <= 90; i++){
 			
-			if(i == 35 ){
+			if(i == randAngle ){
 				continue;
 			}
 			angleOptions.add((Integer)(i));
 		}
 		Collections.shuffle(angleOptions);
-		tip = tank.getTip();
 		tank.changeVelocity(50);
-		targetPosition = new Point((int)(50*Math.cos(Math.toRadians(35))* 5 + tip.x), (int) (50* Math.sin(Math.toRadians(35))* 5 + tip.y - .5*GRAVITY*25));
+		targetPosition = new Point((int)(vX *0.6*tFinal + initialPosition.x), (int) (initialPosition.y- vY*0.6*tFinal + 0.5*GRAVITY*Math.pow(0.6*tFinal,2)));
+		System.out.println(targetPosition.x + " " + targetPosition.y);
 		display();
 		
 	}
@@ -81,9 +96,14 @@ public class Challenge extends JDialog{
 	}
 
 	public void updateAngleButtons(){
-		angle1= new JRadioButton(angleOptions.get(0).toString());
-		angle2 = new JRadioButton(angleOptions.get(35).toString());
-		angle3 = new JRadioButton("35");
+		ArrayList<Integer> locations = new ArrayList<Integer>();
+		locations.add(angleOptions.get(0));
+		locations.add(angleOptions.get(35));
+		locations.add(randAngle);
+		Collections.shuffle(locations);
+		angle1= new JRadioButton(locations.get(0).toString());
+		angle2 = new JRadioButton(locations.get(1).toString());
+		angle3 = new JRadioButton(locations.get(2).toString());
 		
 	}
 	
@@ -98,10 +118,13 @@ public class Challenge extends JDialog{
 					angle = angleOptions.get(35);
 				}
 				else if(angle3.isSelected()){
-					angle = 35;
+					angle = randAngle;
 				}
 				Collections.shuffle(angleOptions);
 				tank.changeAngle(angle);
+				tank.changeVelocity(50);
+				control.update();
+				tank.addProjectile();
 				setVisible(false);
 			}
 			if(e.getSource().equals(cancel)){

@@ -72,10 +72,9 @@ public class Game extends JFrame{
 		JMenuItem notes = new JMenuItem("Challenge");
 		class MenuItemListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				Challenge challenge = new Challenge(tank);
-				background.changeTargetPosition(challenge.getTargetPosition());
+				Challenge challenge = new Challenge(tank, control);
+				background.changeTargetPosition(Challenge.getTargetPosition());
 				challenge.setVisible(true);
-				control.update();
 			}
 		}
 		notes.addActionListener(new MenuItemListener());
