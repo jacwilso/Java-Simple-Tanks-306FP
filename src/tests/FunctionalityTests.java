@@ -29,6 +29,7 @@ public class FunctionalityTests {
 	//DONE:
 	// CS- Control gui score: test with a collision, the score is increased
 	// DD- Target: Test that when the target is hit, it moves
+	// DD- Launcher:test that launcher moves, velocity and angle can be changed
 	// DM- addprojectile test
 	// DM- finished projectile test
 	
