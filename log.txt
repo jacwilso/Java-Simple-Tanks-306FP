@@ -1,0 +1,512 @@
+* commit 97c05869b958f7b1362b8067fc209923fbb0da84
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Thu Dec 1 18:20:50 2016 -0700
+| 
+|     made one final change to launcher tests
+|  
+* commit 6fbcd561ae0e170398072fc6425b769697227289
+| Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| Date:   Thu Dec 1 17:31:20 2016 -0700
+| 
+|     updated challenge, fixed bug
+|  
+* commit 717d957da397dd8795b6ba2d32836e464109bf45
+| Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| Date:   Thu Dec 1 17:22:40 2016 -0700
+| 
+|     finished the challenge activity
+|    
+*   commit 4def5aa0e91871bd11a2e7f1d114acb312d4cb51
+|\  Merge: 3fb9879 f75d0d3
+| | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | Date:   Thu Dec 1 16:29:51 2016 -0700
+| | 
+| |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |     
+| *   commit f75d0d39c2dd7d97ef683f240f0f1a1969887a28
+| |\  Merge: 13e0574 d063874
+| | | Author: Craig Steinke <Craig Steinke>
+| | | Date:   Thu Dec 1 16:02:09 2016 -0700
+| | | 
+| | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 13e0574301792066d8060a7fd7489940766a7cec
+| | | Author: Craig Steinke <Craig Steinke>
+| | | Date:   Thu Dec 1 16:02:01 2016 -0700
+| | | 
+| | |     tank wheels fam
+| | |    
+* | | commit 3fb9879882d34221f166ed5b76e3abd350aa333e
+| | | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | | Date:   Thu Dec 1 16:29:42 2016 -0700
+| | | 
+| | |     finished projectile test and addProjectile test
+| | |      
+* | |   commit 5786347a112f5653a7acb2e8673414aeb4d876d7
+|\ \ \  Merge: 7f81598 d063874
+| | |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| |/|   Date:   Thu Dec 1 15:51:30 2016 -0700
+| | |   
+| | |       fixing merge conflicts
+| | |    
+| * | commit d06387437c5de97927ea94a1a9ce793ececa2e6d
+| | | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | Date:   Thu Dec 1 15:47:41 2016 -0700
+| | | 
+| | |     wrote tests for target
+| | |      
+| * |   commit f9b264642182444049c4f59084143a15381ec552
+| |\ \  Merge: 23bcc4a 92d7f1b
+| | |/  Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | |   Date:   Thu Dec 1 15:33:06 2016 -0700
+| | |   
+| | |       Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 23bcc4a7b64792f454944db39335d4c40a63a850
+| | | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | Date:   Thu Dec 1 15:32:59 2016 -0700
+| | | 
+| | |     Started working on tests
+| | |    
+* | | commit 7f815981a826b8a58a58204c025847992e13ef39
+| | | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | | Date:   Thu Dec 1 15:48:59 2016 -0700
+| | | 
+| | |     updating tests
+| | |      
+* | |   commit 59fdecff76892dca11a877bbed54b4e17e482198
+|\ \ \  Merge: 2b26f69 92d7f1b
+| | |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| |/|   Date:   Thu Dec 1 15:44:15 2016 -0700
+| | |   
+| | |       trying to fix conflict
+| | |    
+| * | commit 92d7f1bf89807569a51d66d63ab59a3e30eae7b7
+| |/  Author: Craig Steinke <Craig Steinke>
+| |   Date:   Thu Dec 1 15:31:07 2016 -0700
+| |   
+| |       Collision detection tests. Also got rid of the obstacle class.
+| |   
+* | commit 2b26f6920f3ce156e340090b9efd10f91657bd38
+|/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|   Date:   Thu Dec 1 15:39:23 2016 -0700
+|   
+|       working on tests
+|    
+*   commit 317e2f75f17d8829a0fa6c6f951105921eaeefc4
+|\  Merge: 5baeffd 841e189
+| | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | Date:   Thu Dec 1 15:02:28 2016 -0700
+| | 
+| |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |   
+| * commit 841e18950f377f7aca23b0435d275ccacab89781
+| | Author: jacwilso <jacwilso@mines.edu>
+| | Date:   Thu Dec 1 14:30:35 2016 -0700
+| | 
+| |     test variable change
+| |   
+| * commit 8973079f03541b224e371e09ef2987a4fa090373
+| | Author: jacwilso <jacwilso@mines.edu>
+| | Date:   Thu Dec 1 13:25:58 2016 -0700
+| | 
+| |     dynamic ground
+| |   
+* | commit 5baeffde356a237476c0587134a6c0b0dc15cbaf
+|/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|   Date:   Thu Dec 1 13:25:57 2016 -0700
+|   
+|       added blank tests
+|    
+*   commit 81b976972ecc8e300498f455af37442ee7a3fab3
+|\  Merge: 94e4385 16506c9
+| | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | Date:   Thu Dec 1 13:02:51 2016 -0700
+| | 
+| |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |   
+| * commit 16506c9019eddff845de30ef713c187c5bfc36d5
+| | Author: Craig Steinke <csteinke@mines.edu>
+| | Date:   Thu Dec 1 13:02:20 2016 -0700
+| | 
+| |     bird
+| |     
+| *   commit 9d25e9f1acea34b7556685e0bd022090584cfbc8
+| |\  Merge: 5d04a6f c5b6c94
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Thu Dec 1 12:46:42 2016 -0700
+| | | 
+| | |     Merge conflicts
+| | |      
+| | *   commit c5b6c94c8f5127c15917f545d9e2313a8d71f131
+| | |\  Merge: edeb268 5f2c8a1
+| | | | Author: jacwilso <jacwilso@mines.edu>
+| | | | Date:   Thu Dec 1 12:28:18 2016 -0700
+| | | | 
+| | | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | | |     
+| | * | commit edeb268cc96ab9070a00bc9ef0c0d44730298402
+| | | | Author: jacwilso <jacwilso@mines.edu>
+| | | | Date:   Thu Dec 1 12:28:15 2016 -0700
+| | | | 
+| | | |     gui tests updated to match changed functionality
+| | | |     
+| * | | commit 5d04a6fac1334caeccfd9c2645693862c7e2b150
+| | | | Author: Craig Steinke <csteinke@mines.edu>
+| | | | Date:   Thu Dec 1 12:43:49 2016 -0700
+| | | | 
+| | | |     added bird obstacle
+| | | |     
+* | | | commit 94e4385a63e3b63ea841f93d02907b97f331527d
+| |_|/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|/| |   Date:   Thu Dec 1 13:02:43 2016 -0700
+| | |   
+| | |       Working on getting the target in the right location for the challenge activity
+| | |      
+* | |   commit 5f2c8a1838c8c87bed401f96f0457efd8530eaa7
+|\ \ \  Merge: 939f294 2118b63
+| | |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| |/|   Date:   Thu Dec 1 12:27:10 2016 -0700
+| | |   
+| | |       Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |      
+| * |   commit 2118b636ed0bad576e741b65455c609bdcd81ea5
+| |\ \  Merge: 238090c d1181cd
+| | | | Author: jacwilso <jacwilso@mines.edu>
+| | | | Date:   Thu Dec 1 12:19:59 2016 -0700
+| | | | 
+| | | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | | |     
+| | * | commit d1181cda646338ccfd3ee9bceed0b518aee631bd
+| | | | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | | Date:   Thu Dec 1 12:14:12 2016 -0700
+| | | | 
+| | | |     working on functionality tests
+| | | |       
+| | * |   commit 25c26f67e028a12bf4606a4e2a8c31ea259d326e
+| | |\ \  Merge: 3a5b884 c8cb4fe
+| | | |/  Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | |   Date:   Thu Dec 1 12:11:28 2016 -0700
+| | | |   
+| | | |       Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | | |     
+| | * | commit 3a5b884bc5a0dd94470cd9696231f7d1f98ea700
+| | | | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | | Date:   Thu Dec 1 12:11:17 2016 -0700
+| | | | 
+| | | |     fixed some bugs in test code
+| | | |     
+| * | | commit 238090c98eca7e70e07f37f40e532c7a9a57d811
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| |/|   Date:   Thu Dec 1 12:19:54 2016 -0700
+| | |   
+| | |       ground divets
+| | |    
+| * | commit c8cb4feb745469ac683ea9ea461fb22496592976
+| |/  Author: Craig Steinke <csteinke@mines.edu>
+| |   Date:   Thu Dec 1 11:51:00 2016 -0700
+| |   
+| |       Got rid of unnecessary extra arraylist
+| |   
+* | commit 939f294bfab170b44d02711b1e42cadddc340ac5
+|/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|   Date:   Thu Dec 1 12:26:59 2016 -0700
+|   
+|       challenge: updated target location and takes in selected angle
+|    
+*   commit ef10c9febfcd30126caf6578f876036da1d61524
+|\  Merge: 9929236 321c8ae
+| | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | Date:   Wed Nov 30 16:52:51 2016 -0700
+| | 
+| |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |     
+| *   commit 321c8ae8c23115c11de7aeac3d9a33ff35e1a3e9
+| |\  Merge: 3fef994 f13c813
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Wed Nov 30 16:45:48 2016 -0700
+| | | 
+| | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 3fef9946c39115ac45ac1e59b1114c1266cb053d
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Wed Nov 30 16:45:24 2016 -0700
+| | | 
+| | |     Add removing missiles after they're done. Fixed score update bug
+| | |    
+* | | commit 9929236ce8cc8f77bcb1f0107a7d1699cd6531a4
+| |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|/|   Date:   Wed Nov 30 16:52:39 2016 -0700
+| |   
+| |       still working on challeneg
+| |     
+* |   commit f13c81372d6b7f03402e221d73d3d6c69879cc9e
+|\ \  Merge: 5324e2c 64fbd73
+| | | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | | Date:   Wed Nov 30 16:24:18 2016 -0700
+| | | 
+| | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 64fbd73e2423418718d8e8db8330c1896e49b84b
+| | | Author: jacwilso <jacwilso@mines.edu>
+| | | Date:   Wed Nov 30 16:21:10 2016 -0700
+| | | 
+| | |     left over conflicts
+| | |      
+| * |   commit 735f68172bce754e4ca7c9b805f60043b803c8d1
+| |\ \  Merge: 13fba9b 68d99f9
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| | |   Date:   Wed Nov 30 16:19:32 2016 -0700
+| | |   
+| | |       merge conflicts
+| | |      
+| | *   commit 68d99f9da451caebfd91cc6c6c48b6cb9318b8b5
+| | |\  Merge: d7a6cf4 bd35071
+| | | | Author: Craig Steinke <csteinke@mines.edu>
+| | | | Date:   Wed Nov 30 16:12:43 2016 -0700
+| | | | 
+| | | |     merge conflicts
+| | | |     
+| | * | commit d7a6cf4e53aee7a9e203bd0d584a40b6529fec51
+| | | | Author: Craig Steinke <csteinke@mines.edu>
+| | | | Date:   Wed Nov 30 16:11:41 2016 -0700
+| | | | 
+| | | |     Added detection for shooting yourself
+| | | |     
+| * | | commit 13fba9b6cafc2a04275e00c76eeb836495b8517e
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| |/|   Date:   Wed Nov 30 16:18:40 2016 -0700
+| | |   
+| | |       changed target size and collision
+| | |      
+| * |   commit bd35071f875392d14cf2d64cca11d2a2aded3852
+| |\ \  Merge: 10c4682 5410acf
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| | |   Date:   Wed Nov 30 16:04:56 2016 -0700
+| | |   
+| | |       Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |      
+| | *   commit 5410acf4f2a8a0e83d8c2181e78a449a88c88623
+| | |\  Merge: 3e659b3 c0cafde
+| | | | Author: Craig Steinke <csteinke@mines.edu>
+| | | | Date:   Wed Nov 30 15:47:03 2016 -0700
+| | | | 
+| | | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | | |     
+| | * | commit 3e659b33a72093d14708f0e49bd868682ce9848b
+| | | | Author: Craig Steinke <csteinke@mines.edu>
+| | | | Date:   Wed Nov 30 15:46:50 2016 -0700
+| | | | 
+| | | |     Added rays to the sun
+| | | |     
+| * | | commit 10c46821f4fa77cfb7fadaf30a7b2daac77e653b
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| |/|   Date:   Wed Nov 30 16:04:50 2016 -0700
+| | |   
+| | |       target and projectile dissappear
+| | |      
+| * |   commit c0cafde189dd7370003d5aa54570abec207dd16d
+| |\ \  Merge: e231369 f131820
+| | | | Author: jacwilso <jacwilso@mines.edu>
+| | | | Date:   Wed Nov 30 15:39:11 2016 -0700
+| | | | 
+| | | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | | |     
+| * | | commit e231369439a977efc16b00f59228c400c79cded2
+| | |/  Author: jacwilso <jacwilso@mines.edu>
+| |/|   Date:   Wed Nov 30 15:39:07 2016 -0700
+| | |   
+| | |       score update
+| | |    
+* | | commit 5324e2cbf688afb140befca28212417797562a66
+| |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|/|   Date:   Wed Nov 30 16:24:01 2016 -0700
+| |   
+| |       Working on challenge
+| |     
+* |   commit f1318202cbbc189163f4b3b1e2c45efc3329db9b
+|\ \  Merge: 29c4893 7f7ec30
+| |/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| |   Date:   Wed Nov 30 15:28:34 2016 -0700
+| |   
+| |       Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |   
+| * commit 7f7ec3006e3b113b56cb9bc7d36fbbd2f603b09b
+| | Author: jacwilso <jacwilso@mines.edu>
+| | Date:   Wed Nov 30 15:27:17 2016 -0700
+| | 
+| |     keys fully operational
+| |     
+| *   commit 1095a7021b667175de18286148ad679ece46d1de
+| |\  Merge: fa590fd 43c3000
+| | | Author: jacwilso <jacwilso@mines.edu>
+| | | Date:   Wed Nov 30 15:20:57 2016 -0700
+| | | 
+| | |     merge conflicts
+| | |    
+| | * commit 43c3000d5eaa46a34b61249263e52b68a527b33b
+| | | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | | Date:   Wed Nov 30 15:20:08 2016 -0700
+| | | 
+| | |     created menu bar
+| | |    
+| * | commit fa590fd1a6b86f8a6076c1ed49337b37a791e21a
+| |/  Author: jacwilso <jacwilso@mines.edu>
+| |   Date:   Wed Nov 30 15:20:29 2016 -0700
+| |   
+| |       adding random things
+| |   
+* | commit 29c48937a0d1f9ef1eff725da230663c03e8cc52
+|/  Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+|   Date:   Wed Nov 30 15:28:15 2016 -0700
+|   
+|       Started working on challenge
+|  
+* commit a860111c94c1cd9833db678cb5d13aa6b91319a1
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Wed Nov 30 15:06:31 2016 -0700
+| 
+|     working with focusing problems
+|  
+* commit 0178f7d56d9aa75bb5c6c275d4da63d94cc459d1
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Wed Nov 30 14:24:19 2016 -0700
+| 
+|     tank moves left + right, angel up + down
+|  
+* commit eb5c0873e2fa9eab8e8485b13b9a0cfa989ba34f
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Wed Nov 30 14:19:11 2016 -0700
+| 
+|     projectile drawing
+|  
+* commit 9f922d78bad4cd87d6a4dae473cdc6adf4b126a2
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Tue Nov 29 14:02:10 2016 -0700
+| 
+|     projectile class complete
+|    
+*   commit 53d24e53f1408dbb2562c0cba544b3ebd948cf77
+|\  Merge: 74526d3 140a254
+| | Author: jacwilso <jacwilso@mines.edu>
+| | Date:   Tue Nov 29 13:40:07 2016 -0700
+| | 
+| |     merge conflicts and such
+| |     
+| *   commit 140a254b69437f8c53f42e4217475d983f621df0
+| |\  Merge: 9aa8006 320adc5
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Tue Nov 29 13:36:26 2016 -0700
+| | | 
+| | |     Conflict resolution
+| | |    
+| * | commit 9aa800679d5fa3769d8b7fb52cd7b6891868f23c
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Tue Nov 29 13:33:36 2016 -0700
+| | | 
+| | |     Added control GUI functionality
+| | |    
+* | | commit 74526d36fe7d84f4ac35661bc866b3620adc81a3
+| |/  Author: jacwilso <jacwilso@mines.edu>
+|/|   Date:   Tue Nov 29 13:36:19 2016 -0700
+| |   
+| |       tragjectory path finished
+| |     
+* |   commit 320adc56042c57283b17cbbe7c007a54676174f3
+|\ \  Merge: 3ee362e 229c2fb
+| |/  Author: jacwilso <jacwilso@mines.edu>
+| |   Date:   Tue Nov 29 12:52:09 2016 -0700
+| |   
+| |       fixed merging conflict
+| |     
+| *   commit 229c2fb7fb8e8f92645de91ead38528aa1dff9fc
+| |\  Merge: 591a0ba 73c2e33
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Tue Nov 29 12:50:20 2016 -0700
+| | | 
+| | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 591a0baaaa06217095ecc13e9f81fd26c4bc75c3
+| | | Author: Craig Steinke <csteinke@mines.edu>
+| | | Date:   Tue Nov 29 12:50:06 2016 -0700
+| | | 
+| | |     added tank to background
+| | |    
+* | | commit 3ee362e0e89fa6f68bbb177b2d63591b032d2d8c
+| |/  Author: jacwilso <jacwilso@mines.edu>
+|/|   Date:   Tue Nov 29 12:51:38 2016 -0700
+| |   
+| |       trajectory line
+| |   
+* | commit 73c2e33fa3f686446026cff734fc6ea402afa478
+|/  Author: jacwilso <jacwilso@mines.edu>
+|   Date:   Tue Nov 29 12:42:17 2016 -0700
+|   
+|       moving clouds
+|    
+*   commit 6198754f03b08402ce9b7b2eeb445bc3a7a054b1
+|\  Merge: 3f57035 0cdf8f8
+| | Author: Craig Steinke <csteinke@mines.edu>
+| | Date:   Tue Nov 29 12:06:53 2016 -0700
+| | 
+| |     merge conflicts
+| |   
+| * commit 0cdf8f8c4908a1890016eecedc6659b99bcfb1ec
+| | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | Date:   Tue Nov 29 11:46:02 2016 -0700
+| | 
+| |     made launcher a polygon
+| |   
+* | commit 3f57035232ffc6fc44242ef8fca342d2bfc8b533
+|/  Author: Craig Steinke <csteinke@mines.edu>
+|   Date:   Tue Nov 29 12:00:36 2016 -0700
+|   
+|       Combining graphics
+|  
+* commit e838f1754761b6b409ab05ecd2cbb34d3332b504
+| Author: Craig Steinke <Craig Steinke>
+| Date:   Mon Nov 28 23:45:57 2016 -0700
+| 
+|     Finished the ControlPanel display
+|  
+* commit afb0ebee8f3b552edfbc3384c48067e0ebb28165
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Sun Nov 27 13:37:32 2016 -0700
+| 
+|     ran tests
+|  
+* commit a55a7bc0d514f0ec1fd7322e4c6a04b2d61b7e77
+| Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| Date:   Tue Nov 22 16:22:21 2016 -0700
+| 
+|     created tank in launcher class
+|  
+* commit c10473aa5422431cd50cfd5900c168e1674f2448
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Tue Nov 22 15:06:45 2016 -0700
+| 
+|     Finished GUI for projectile
+|  
+* commit 9d84fcdb9a22a3570411bdbcf69945965f24e0d0
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Tue Nov 22 14:34:24 2016 -0700
+| 
+|     background gui completed with testing
+|  
+* commit 87814bd9f6719bc89a4d7055eafbb88c43aa60bb
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Tue Nov 22 12:15:32 2016 -0700
+| 
+|     added gitlog
+|  
+* commit c982a5ec79943782295a4c464a7c3dfdf84f9d16
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Tue Nov 22 12:13:49 2016 -0700
+| 
+|     wrote failing tests
+|  
+* commit 463b5d4a098a6afe5a51183349e786fc0bf09be9
+  Author: Jacob Wilson <jacwilso@mines.edu>
+  Date:   Thu Nov 17 11:09:35 2016 -0700
+  
+      Initial commit
