@@ -14,6 +14,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 
 public class Challenge extends JDialog{
@@ -35,8 +37,8 @@ public class Challenge extends JDialog{
 	private double tFinal;
 	private Point initialPosition;
 	private ControlPanel control;
-	private double velocity;
 	private Integer randAngle;
+	ArrayList<Integer> locations;
 	
 	
 	public Challenge(Launcher tank, ControlPanel c){
@@ -74,11 +76,13 @@ public class Challenge extends JDialog{
 		options.add(angle1);
 		options.add(angle2);
 		options.add(angle3);
+		options.setBorder(new TitledBorder (new EtchedBorder(), "Angle Options"));
 		add(options);
 		ButtonGroup angles = new ButtonGroup();
 		angles.add(angle1);
 		angles.add(angle2);
 		angles.add(angle3);	
+		
 		buttons = new JPanel();
 		ok = new JButton("Ok");
 		cancel = new JButton("Cancel");
@@ -96,7 +100,7 @@ public class Challenge extends JDialog{
 	}
 
 	public void updateAngleButtons(){
-		ArrayList<Integer> locations = new ArrayList<Integer>();
+		locations = new ArrayList<Integer>();
 		locations.add(angleOptions.get(0));
 		locations.add(angleOptions.get(35));
 		locations.add(randAngle);
@@ -112,13 +116,13 @@ public class Challenge extends JDialog{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(ok)){
 				if(angle1.isSelected()){
-					angle = angleOptions.get(0);
+					angle = locations.get(0);
 				}
 				else if(angle2.isSelected()){
-					angle = angleOptions.get(35);
+					angle = locations.get(1);
 				}
 				else if(angle3.isSelected()){
-					angle = randAngle;
+					angle = locations.get(2);
 				}
 				Collections.shuffle(angleOptions);
 				tank.changeAngle(angle);
