@@ -34,7 +34,8 @@ public class GUITests {
 		background = new Background(800,350,tank,control);
 	}
 	
-	//@Test
+	//Shows the control GUI
+	@Test
 	public void TestControlGUI(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,7 +47,8 @@ public class GUITests {
 		in.nextLine();
 	}
 	
-	//@Test
+	//shows the background
+	@Test
 	public void testBackground(){
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,6 +59,7 @@ public class GUITests {
 		in.nextLine();
 	}
 	
+	//shows the background and the control GUI
 	@Test
 	public void combineGUI(){
 		JFrame frame = new JFrame();
