@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class Game extends JFrame{
 	private Launcher tank;
@@ -91,8 +92,11 @@ public class Game extends JFrame{
 		return item;
 	}
 	
-	public static void main(String[] args){		
+	public static void main(String[] args){	
 		Game game = new Game();
 		game.setVisible(true);
+		JOptionPane intro = new JOptionPane();
+		intro.showMessageDialog(game, "You can change the angle of the tank manually or with the up/down arrow keys and change the initial velocity manually.  \nYou can move the tank using the left/right arrow keys and press fire, hit the space bar or press enter to shoot! \nHit the target but not birds or yourself!", "How to play", JOptionPane.INFORMATION_MESSAGE);
+
 	}
 }

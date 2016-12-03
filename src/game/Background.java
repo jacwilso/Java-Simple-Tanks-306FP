@@ -24,21 +24,24 @@ public class Background extends JComponent{
 	private Target target;
 	private Bird bird;
 	private boolean ground[][];
-	
+	//Constructor sets the width and height of the background according to the size of the game screen, takes a launcher and the control panel.
 	public Background(int width, int height, Launcher tank, ControlPanel control){
 		this.width = width;
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
+		//ground is an array that contains the pixels that make up the ground.
 		ground = new boolean[width][50];
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
 				ground[i][j]=true;
+		//Sets the initial location for the tank
 		tank.move(new Point(10,height-60));
 		this.tank = tank;
 		this.bird = new Bird();
 		bird.reset();
 		target = new Target();
+		//Timer that starts for the moving clouds and birds
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();

@@ -65,41 +65,47 @@ public class ControlPanel extends JPanel{
 		panel.add(angleUpButton);
 		add(panel);
 	}
-	
+	//updates the control panel for changing velocity/angle/score
 	public void update(){
 		velocity.setText(tank.getInitialVelocity() +"");
 		angle.setText(tank.getAngle() +"");
 		score.setText(tank.getScore() +"");
 	}
-	
+	//Button listener class for the buttons on the control panel
 	private class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//fire projectile
 			if(e.getSource().equals(fireButton)){
 				tank.addProjectile();
 			}
+			//decrease velocity
 			if(e.getSource().equals(velocityDownButton)){
 				tank.changeVelocity(tank.getInitialVelocity() - 1);
 				velocity.setText(tank.getInitialVelocity() +"");
 			}
+			//increase velocity
 			if(e.getSource().equals(velocityUpButton)){
 				tank.changeVelocity(tank.getInitialVelocity() + 1);
 				velocity.setText(tank.getInitialVelocity() +"");
 			}
+			//decrease angle
 			if(e.getSource().equals(angleDownButton)){
 				tank.changeAngle(tank.getAngle() - 5);
 				angle.setText(tank.getAngle() +"");
 			}
+			//increase angle
 			if(e.getSource().equals(angleUpButton)){
 				tank.changeAngle(tank.getAngle() + 5);
 				angle.setText(tank.getAngle() +"");
 			}
 		}
 	}
-	
+	//class to listen for keys pressed
 	private class TextListner implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//to enter a velocity into the velocity text field
 			if(e.getSource().equals(velocity)){
-				try{
+				try{ //set new velocity
 				double velocityValue = Double.parseDouble(velocity.getText());
 				tank.changeVelocity(velocityValue);
 				velocity.setText(tank.getInitialVelocity() +"");
@@ -108,12 +114,13 @@ public class ControlPanel extends JPanel{
 				velocity.setFocusable(true);
 				angle.setFocusable(true);
 				}
+				//if value entered isnt a number
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Velocity must be a decimal number.");
 					velocity.setText(tank.getInitialVelocity()+"");
 				}
 			}
-			
+			//to enter an angle into the angle text field
 			if(e.getSource().equals(angle)){
 				try{
 				int angleValue = Integer.valueOf(angle.getText());
@@ -122,13 +129,13 @@ public class ControlPanel extends JPanel{
 				angle.setFocusable(false);
 				angle.setFocusable(true);
 				}
+				//if value entered isnt a number
 				catch(NumberFormatException ex){
 					JOptionPane.showMessageDialog(null, "Angle must be an integer.");
 					angle.setText(tank.getAngle() +"");
 				}
 			}		
-		}
-		
+		}		
 	}
 	
 	public double getVelocity(){

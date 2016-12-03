@@ -11,7 +11,7 @@ public class Bird {
 	private boolean flying = true;
 	private int x, y;
 	private Color color;
-	
+	//code to draw the bird
 	public void draw(Graphics g){
 		x = x - 3;
 		g.setColor(color);
@@ -22,6 +22,7 @@ public class Bird {
 		g.fillOval(x+5,y+9, 4, 4);		
 		g.setColor(Color.white);
 		g.fillOval(x+7,y+10, 1, 1);
+		//beak
 		g.setColor(Color.orange);
 		int xcoord[] = {x, x-3, x};
 		int ycoord[] = {y+5, y+10, y+15};

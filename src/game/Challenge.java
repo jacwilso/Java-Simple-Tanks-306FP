@@ -66,7 +66,6 @@ public class Challenge extends JDialog{
 		//The target's position is determined using the random angle
 		//The location is at time 0.6*tFinal
 		targetPosition = new Point((int)(vX *0.6*tFinal + initialPosition.x), (int) (initialPosition.y- vY*0.6*tFinal + 0.5*GRAVITY*Math.pow(0.6*tFinal,2)));
-		System.out.println(targetPosition.x + " " + targetPosition.y);
 		display();
 		
 	}
