@@ -61,7 +61,6 @@ public class Challenge extends JDialog{
 		Collections.shuffle(angleOptions);
 		tank.changeVelocity(50);
 		targetPosition = new Point((int)(vX *0.6*tFinal + initialPosition.x), (int) (initialPosition.y- vY*0.6*tFinal + 0.5*GRAVITY*Math.pow(0.6*tFinal,2)));
-		System.out.println(targetPosition.x + " " + targetPosition.y);
 		display();
 		
 	}
