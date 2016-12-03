@@ -26,39 +26,21 @@ public class FunctionalityTests {
 	
 
 	
-	//DONE:
-	// CS- Control gui score: test with a collision, the score is increased
-	// DD- Target: Test that when the target is hit, it moves
-	// DD- Launcher:test that launcher moves, velocity and angle can be changed
-	// DM- addprojectile test
-	// DM- finished projectile test
 	
-	
-	//JW- Target position: test the target is drawn properly, in the proper location
-	//JW- Target collision: test given an angle, power and target location, does the projectile collide -- Doesn't Craig's collision test essentially test this?
-	
-	//Craig Notes (Same with the ones for DM and JW)
-	//Didn't Rader say that the tests like the ones below can just be tested by running the program? As in no JUnit.
-	//CS- Control gui fire: test the projectile is launched
-	//CS- Control gui score text field: test the score field updates the display
-	//CS- Control gui decrease power: test the power value decreases
-	//DM- Control gui increase power: test the power value increases
-	//DM- Control gui power display: test the display is updated with a change of value
-	//DM- Control gui increase angle: test the angle value is increased
-	//DM- Control gui decrease angle: test the angle value is decreased	
-	//JW- Control gui edit text angle: test the angle value is changed appropriately
-	//JW- Control gui text angle: test the angle display is updated accordingly
-	
+	//Tests that the launcher functions work
 	@Test
 	public void launcherTests(){
+		//checks that the angle changes
 		launcher.changeAngle(15);
 		assertEquals(launcher.getAngle(), 15);
 		launcher.changeAngle(9);
 		assertEquals(launcher.getAngle(), 9);
+		//checks that the launcher moves
 		Point p = new Point(2,2);
 		launcher.move(p);
 		assertEquals(launcher.getLocation().x, p.x);
 		assertEquals(launcher.getLocation().y, p.y);
+		//checks that the velocity changes
 		launcher.changeVelocity(15.0);
 		assertEquals(launcher.getInitialVelocity(), 15.0, 0.01); 
 		launcher.changeVelocity(9.0);
@@ -81,6 +63,7 @@ public class FunctionalityTests {
 		assertNotSame(0.0, projectile.getPositionY());
 	}
 	
+	//Tests that the target moves
 	@Test
 	public void TargetTest(){
 		Target target = new Target();
