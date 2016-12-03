@@ -20,9 +20,11 @@ import javax.swing.Timer;
 public class Background extends JComponent{
 	private int width, height;
 	private int cloudX, cloudY;
+	private int gondola1X, gondola1Y,gondola2X, gondola2Y,gondola3X, gondola3Y,gondola4X, gondola4Y,gondola5X, gondola5Y,gondola6X,gondola6Y,startX,startY, endX, endY;
 	private Launcher tank;
 	private Target target;
 	private Bird bird;
+	private boolean gondMove =true;
 	private boolean ground[][];
 	//Constructor sets the width and height of the background according to the size of the game screen, takes a launcher and the control panel.
 	public Background(int width, int height, Launcher tank, ControlPanel control){
@@ -30,6 +32,22 @@ public class Background extends JComponent{
 		this.height = height;
 		cloudX = 100;
 		cloudY = 100;
+		gondola1X = 3*width/8-141;
+		gondola1Y = height-120;
+		gondola2X = gondola1X+25;
+		gondola2Y = gondola1Y-25;
+		gondola3X = gondola2X+25;
+		gondola3Y = gondola2Y-25;
+		gondola4X = gondola3X+25;
+		gondola4Y = gondola3Y-25;
+		gondola5X = gondola4X+25;
+		gondola5Y = gondola4Y-25;
+		gondola6X = gondola5X+25;
+		gondola6Y = gondola5Y-25;
+		startX = 3*width/8-166;
+		startY = height-95;
+		endX = 3*width/8-11;
+		endY = height-250;
 		//ground is an array that contains the pixels that make up the ground.
 		ground = new boolean[width][50];
 		for(int i=0; i<width; i++)
@@ -67,7 +85,7 @@ public class Background extends JComponent{
 		int yCoord3[] = {height-50, height-280, height-50};
 		g.fillPolygon(xCoord3, yCoord3, 3);
 		g.setColor(new Color(119,136,153));
-		int xCoord2[] = {width/4-50,3*width/8,width/2+50};
+		int xCoord2[] = {width/4-100,3*width/8,width/2+100};
 		int yCoord2[] = {height-50, height-250, height-50};
 		g.fillPolygon(xCoord2, yCoord2, 3);
 		g.setColor(new Color(200,190,200));
@@ -84,18 +102,36 @@ public class Background extends JComponent{
 		int yCoord6[] = {height-165, height-280, height-115};
 		g.fillPolygon(xCoord6, yCoord6, 3);
 		g.setColor(new Color(255,250,250));
-		int xCoord7[] = {3*width/8-132,3*width/8,3*width/8+75};
+		int xCoord7[] = {3*width/8-175,3*width/8,3*width/8+100};
 		int yCoord7[] = {height-75, height-250, height-150};
 		g.fillPolygon(xCoord7, yCoord7, 3);
 		g.setColor(new Color(255,255,250));
 		int xCoord8[] = {7*width/8-27,7*width/8,7*width/8+26};
 		int yCoord8[] = {height-160, height-200, height-160};
 		g.fillPolygon(xCoord8, yCoord8, 3);
-		/*** Ski Lift ***/
-		g.setColor(Color.BLACK);
+		/*** Gondolas ***/
 		Graphics2D g3 = (Graphics2D) g;
+		g3.setColor(Color.BLACK);
+		g3.draw(new Line2D.Float(gondola1X, gondola1Y, gondola1X, gondola1Y+7));
+		g3.draw(new Line2D.Float(gondola2X, gondola2Y, gondola2X, gondola2Y+7));
+		g3.draw(new Line2D.Float(gondola3X, gondola3Y, gondola3X, gondola3Y+7));
+		g3.draw(new Line2D.Float(gondola4X, gondola4Y, gondola4X, gondola4Y+7));
+		g3.draw(new Line2D.Float(gondola5X, gondola5Y, gondola5X, gondola5Y+7));
+		g3.draw(new Line2D.Float(gondola6X, gondola6Y, gondola6X, gondola6Y+7));
+		g.setColor(Color.ORANGE);
+		g.fillRect(gondola1X-3, gondola1Y+7, 8, 6);
+		g.fillRect(gondola2X-3, gondola2Y+7, 8, 6);
+		g.fillRect(gondola3X-3, gondola3Y+7, 8, 6);
+		g.fillRect(gondola4X-3, gondola4Y+7, 8, 6);
+		g.fillRect(gondola5X-3, gondola5Y+7, 8, 6);
+		g.fillRect(gondola6X-3, gondola6Y+7, 8, 6);
+		/*** Ski Lift ***/
+		g3.setColor(Color.BLACK);
 		g3.setStroke(new BasicStroke(10));
-		g3.draw(new Line2D.Float(3*width/8-132, height-75, 3*width/8-125, height-85));
+		g3.draw(new Line2D.Float(3*width/8-175, height-80, 3*width/8-167, height-90));
+		g3.draw(new Line2D.Float(3*width/8-11, height-244, 3*width/8-5, height-251));
+		g3.setStroke(new BasicStroke(1));
+		g3.draw(new Line2D.Float(startX, startY, endX, endY));
 		/*** Cloud ***/
 		g.setColor(Color.WHITE);
 		// top cloud
@@ -147,8 +183,51 @@ public class Background extends JComponent{
 	}
 	
 	public void update(){
+		//Gondolas
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
+		if(gondola1Y < endY){
+			gondola1X = startX;
+			gondola1Y = startY;
+		}
+		if(gondola2Y < endY){
+			gondola2X = startX;
+			gondola2Y = startY;
+		}
+		if(gondola3Y < endY){
+			gondola3X = startX;
+			gondola3Y = startY;
+		}
+		if(gondola4Y < endY){
+			gondola4X = startX;
+			gondola4Y = startY;
+		}
+		if(gondola5Y < endY){
+			gondola5X = startX;
+			gondola5Y = startY;
+		}
+		if(gondola6Y < endY){
+			gondola6X = startX;
+			gondola6Y = startY;
+		}
+		if(gondMove){
+			gondola1X+=1;
+			gondola1Y-=1;
+			gondola2X+=1;
+			gondola2Y-=1;
+			gondola3X+=1;
+			gondola3Y-=1;
+			gondola4X+=1;
+			gondola4Y-=1;
+			gondola5X+=1;
+			gondola5Y-=1;
+			gondola6X+=1;
+			gondola6Y-=1;
+			gondMove = false;
+		}
+		else{
+			gondMove = true;
+		}
 		//Target Collision Detection
 		if(tank.collisionDetection(target.getPosition(),11)){
 			target.hit(width, height);
@@ -171,6 +250,7 @@ public class Background extends JComponent{
 					//System.out.println(i+" "+j+" "+ground[i][j]);
 					break;
 				}
+		
 		repaint();
 	}
 	
