@@ -57,6 +57,40 @@ public class Background extends JComponent{
 		/*** Sky ***/
 		g.setColor(Color.BLUE);
 		g.fillRect(0,0,width,height);
+		/*** Mountains ***/
+		g.setColor(new Color(211,211,211));
+		int xCoord1[] = {0,width/8,width/4+60};
+		int yCoord1[] = {height-50, height-150, height-50};
+		g.fillPolygon(xCoord1, yCoord1, 3);
+		g.setColor(new Color(105,105,105));
+		int xCoord3[] = {width/2-100,5*width/8,3*width/4+50};
+		int yCoord3[] = {height-50, height-280, height-50};
+		g.fillPolygon(xCoord3, yCoord3, 3);
+		g.setColor(new Color(119,136,153));
+		int xCoord2[] = {width/4-50,3*width/8,width/2+50};
+		int yCoord2[] = {height-50, height-250, height-50};
+		g.fillPolygon(xCoord2, yCoord2, 3);
+		g.setColor(new Color(200,190,200));
+		int xCoord4[] = {3*width/4,7*width/8,width};
+		int yCoord4[] = {height-50, height-200, height-50};
+		g.fillPolygon(xCoord4, yCoord4, 3);
+		/*** Snow ***/
+		g.setColor(new Color(255,250,255));
+		int xCoord5[] = {width/8-25,width/8,width/8+40};
+		int yCoord5[] = {height-125, height-150, height-125};
+		g.fillPolygon(xCoord5, yCoord5, 3);
+		g.setColor(new Color(250,250,255));
+		int xCoord6[] = {5*width/8-43,5*width/8,5*width/8+40};
+		int yCoord6[] = {height-230, height-280, height-220};
+		g.fillPolygon(xCoord6, yCoord6, 3);
+		g.setColor(new Color(255,250,250));
+		int xCoord7[] = {3*width/8-38,3*width/8,3*width/8+35};
+		int yCoord7[] = {height-200, height-250, height-205};
+		g.fillPolygon(xCoord7, yCoord7, 3);
+		g.setColor(new Color(255,255,250));
+		int xCoord8[] = {7*width/8-27,7*width/8,7*width/8+26};
+		int yCoord8[] = {height-160, height-200, height-160};
+		g.fillPolygon(xCoord8, yCoord8, 3);
 		/*** Cloud ***/
 		g.setColor(Color.WHITE);
 		// top cloud
@@ -77,7 +111,6 @@ public class Background extends JComponent{
 		g.fillOval(width-510,height-65, 20, 20);
 		g.fillOval(width-525,height-65, 20, 20);
 		g.fillOval(width-517,height-75, 20, 20);
-
 		/*** Sun ***/
 		g.setColor(Color.YELLOW);
 		g.fillOval(-50,-50,100,100);
