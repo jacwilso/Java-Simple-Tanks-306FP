@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.Arc2D;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
@@ -39,11 +40,17 @@ public class Launcher{
 		double y = justTheTip.y -  vY * tFinal + 0.5*GRAVITY*Math.pow(tFinal,2);
 		g.fillOval((int)(x+2),(int)(y+6), 7, 7);
 		//Calculates the position of the projectile at each point in time and draws it on the screen
-		for(int i=1; i<=percent; i++){
-			x = justTheTip.x + vX * i*tFinal/(double)100;
-			y = justTheTip.y -  vY * i*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(i*tFinal/(double)100,2);
+		for(int i=1; i<=10; i++){
+			int j = i*percent/10;
+			x = justTheTip.x + vX * j*tFinal/(double)100;
+			y = justTheTip.y -  vY * j*tFinal/(double)100 + 0.5*GRAVITY*Math.pow(j*tFinal/(double)100,2);
 			g.fillOval((int)x,(int)y, 2, 2);
 		}
+		int radius = 20;
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(1));
+		g2.draw(new Line2D.Float(justTheTip.x, justTheTip.y, justTheTip.x+radius, justTheTip.y));
+		g2.drawArc(justTheTip.x-radius/2,justTheTip.y-radius/2, radius,radius,0,angle);
 	}
 
 	//Draws the launcher (aka tank)
@@ -97,7 +104,7 @@ public class Launcher{
 	}
 	
 	public void changeAngle(int a){
-		angle = a;
+		angle = a%360;
 	}
 	
 	public Point getLocation(){
@@ -131,7 +138,7 @@ public class Launcher{
 	
 	//Changes the angle of the arm of the launcher by adding or subtracting from its current angle
 	public void moveAngle(int a){
-		changeAngle(angle + a);
+		changeAngle(angle%360 + a%360);
 	}
 
 	//Determines if the projectile hits the target
