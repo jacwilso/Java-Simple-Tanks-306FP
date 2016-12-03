@@ -13,9 +13,11 @@ public class Bird {
 	private Color color;
 	//code to draw the bird
 	public void draw(Graphics g){
+		//bird's body
 		x = x - 3;
 		g.setColor(color);
 		g.fillOval(x,y, 20, 20);
+		//eye
 		g.setColor(Color.white);
 		g.fillOval(x+3,y+6, 8, 8);
 		g.setColor(Color.black);
@@ -36,6 +38,7 @@ public class Bird {
 	}
 	
 	public void reset(){
+		//code to randomly generate the next color of the bird
 		double rand = Math.random();
 		if(rand > .66)
 			color = Color.red;
@@ -47,10 +50,12 @@ public class Bird {
 		
 		color = new Color((int)(Math.random() * 255),(int)(Math.random() * 255),(int)(Math.random() * 255));
 		flying = true;
+		//set initial x position of bird
 		x = 780;
+		//randomly set y position of bird
 		y = 50 + (int)(Math.random() * 110);
 	}
-	
+	//get rid of bird if the bird is hit by a target
 	public void kill(){
 		flying = false;
 	}
