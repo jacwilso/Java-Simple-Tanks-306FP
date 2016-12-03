@@ -80,17 +80,22 @@ public class Background extends JComponent{
 		int yCoord5[] = {height-125, height-150, height-125};
 		g.fillPolygon(xCoord5, yCoord5, 3);
 		g.setColor(new Color(250,250,255));
-		int xCoord6[] = {5*width/8-43,5*width/8,5*width/8+40};
-		int yCoord6[] = {height-230, height-280, height-220};
+		int xCoord6[] = {5*width/8-100,5*width/8,5*width/8+108};
+		int yCoord6[] = {height-165, height-280, height-115};
 		g.fillPolygon(xCoord6, yCoord6, 3);
 		g.setColor(new Color(255,250,250));
-		int xCoord7[] = {3*width/8-38,3*width/8,3*width/8+35};
-		int yCoord7[] = {height-200, height-250, height-205};
+		int xCoord7[] = {3*width/8-132,3*width/8,3*width/8+75};
+		int yCoord7[] = {height-75, height-250, height-150};
 		g.fillPolygon(xCoord7, yCoord7, 3);
 		g.setColor(new Color(255,255,250));
 		int xCoord8[] = {7*width/8-27,7*width/8,7*width/8+26};
 		int yCoord8[] = {height-160, height-200, height-160};
 		g.fillPolygon(xCoord8, yCoord8, 3);
+		/*** Ski Lift ***/
+		g.setColor(Color.BLACK);
+		Graphics2D g3 = (Graphics2D) g;
+		g3.setStroke(new BasicStroke(10));
+		g3.draw(new Line2D.Float(3*width/8-132, height-75, 3*width/8-125, height-85));
 		/*** Cloud ***/
 		g.setColor(Color.WHITE);
 		// top cloud
