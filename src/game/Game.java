@@ -111,8 +111,8 @@ public class Game extends JFrame{
 		Game game = new Game();
 		game.setVisible(true);
 		//Option pane with info on how to play the game
-		//JOptionPane intro = new JOptionPane();
-		//intro.showMessageDialog(game, "You can change the angle of the tank manually or with the up/down arrow keys and change the initial velocity manually.  \nYou can move the tank using the left/right arrow keys and press fire, hit the space bar or press enter to shoot! \nHit the target but not birds or yourself!", "How to play", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane intro = new JOptionPane();
+		intro.showMessageDialog(game, "You can change the angle of the tank manually or with the up/down arrow keys and change the initial velocity manually.  \nYou can move the tank using the left/right arrow keys and press fire, hit the space bar or press enter to shoot! \nHit the target but not birds or yourself!", "How to play", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }
