@@ -1,3 +1,101 @@
+* commit 82bba5ff837420d17f8df74daf54a48dcd79e881
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Mon Dec 5 18:34:08 2016 -0700
+| 
+|     added picture of game
+|  
+* commit 96866cd15c9043c8b523bcff1452af49809f38de
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Mon Dec 5 18:23:22 2016 -0700
+| 
+|     added jar file
+|  
+* commit 955f8132b2491ae6f897553551ea36d5836b69a7
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Mon Dec 5 18:17:51 2016 -0700
+| 
+|     changed modality type of challenge dialog box
+|  
+* commit 1dd1e5cef4d91e91e1be0a7fbd549c2935a90777
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Mon Dec 5 18:08:00 2016 -0700
+| 
+|     final code
+|  
+* commit c2fe48a3a6917d0ce80c282f0a344cfd6c867a57
+| Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| Date:   Mon Dec 5 11:15:09 2016 -0700
+| 
+|     Uncommented JOption pane
+|  
+* commit 547fa263f6b0d1a835970bb7befc3ec8732a01c6
+| Author: jacwilso <jacwilso@mines.edu>
+| Date:   Sat Dec 3 16:21:32 2016 -0700
+| 
+|     angle arc and line
+|  
+* commit ed434a85e9ffef3bbf8dfc73b73cb9f57c85203f
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Sat Dec 3 14:10:53 2016 -0700
+| 
+|     added gondolas and made them move
+|  
+* commit e30e70ca2f44e5c5e8e63f2fb73843b3d5084ff7
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Sat Dec 3 12:50:10 2016 -0700
+| 
+|     Created first part of ski lift.  Peer programming with Delaney Marsh
+|  
+* commit 29578a7a7500a14ba6a861886b8cfa085a52f39a
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Sat Dec 3 12:34:21 2016 -0700
+| 
+|     added mountains to background: peer programmed with Delaney Marsh
+|    
+*   commit d09fdf15b9fae227aa078e8e2465d480df65246b
+|\  Merge: 2f8a2c2 7a3b03a
+| | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| | Date:   Sat Dec 3 12:05:03 2016 -0700
+| | 
+| |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| |   
+| * commit 7a3b03a112d9b92fe0fdf5a89130e3e3603805d6
+| | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | Date:   Sat Dec 3 12:03:39 2016 -0700
+| | 
+| |     Commented Functionality Tests and GUI Tests
+| |     
+| *   commit b3948f0474075e52d87e954b7a7c850f4fd54c4a
+| |\  Merge: 2d88768 99aa6bc
+| | | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | | Date:   Sat Dec 3 11:57:35 2016 -0700
+| | | 
+| | |     Merge branch 'master' of https://github.com/jacwilso/MIFI_306FP
+| | |    
+| * | commit 2d8876858c3d05a7e2facc8822084c341d0a6f93
+| | | Author: Delaney Marsh <dmarsh@mymail.mines.edu>
+| | | Date:   Sat Dec 3 11:57:21 2016 -0700
+| | | 
+| | |     Commented launcher and challenge
+| | |    
+* | | commit 2f8a2c2987fb481ed6f8fbec72b441d86a18fc9e
+| |/  Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+|/|   Date:   Sat Dec 3 12:04:58 2016 -0700
+| |   
+| |       commented game class
+| |   
+* | commit 99aa6bc3b3230afc34143059e1ae05fd8f0096fd
+|/  Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+|   Date:   Sat Dec 3 11:56:49 2016 -0700
+|   
+|       added comments
+|  
+* commit db7ad0c69fe88eda90d17c77cb5f1ce2cfb66767
+| Author: Devon Dunmire <ddunmire@mymail.mines.edu>
+| Date:   Thu Dec 1 18:22:19 2016 -0700
+| 
+|     made new git log
+|  
 * commit 97c05869b958f7b1362b8067fc209923fbb0da84
 | Author: Devon Dunmire <ddunmire@mymail.mines.edu>
 | Date:   Thu Dec 1 18:20:50 2016 -0700
