@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.BorderLayout;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Point;
@@ -88,6 +89,7 @@ public class Game extends JFrame{
 				//if challenge is pressed create challenge item and show JDialog box
 				Challenge challenge = new Challenge(tank, control);
 				background.changeTargetPosition(Challenge.getTargetPosition());
+				challenge.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 				challenge.setVisible(true);
 			}
 		}
