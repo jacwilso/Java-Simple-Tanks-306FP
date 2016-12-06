@@ -63,7 +63,7 @@ public class Background extends JComponent{
 		Timer timer = new Timer(50, new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				update();
-				//control.update();
+				control.update();
 				repaint();
 			}
 		});
@@ -164,8 +164,9 @@ public class Background extends JComponent{
 		g2.draw(new Line2D.Float(0, 0, 75, 20));
 		g2.draw(new Line2D.Float(0, 0, 60, 45));
 		/*** Ground ***/
+		g.setColor(new Color(211,211,211));
+		g.fillRect(0, height-50, width, 50);
 		g.setColor(Color.GREEN);
-		/*** Tank ***/
 		for(int i=0; i<width; i++)
 			for(int j=0; j<50; j++)
 				if(ground[i][j])
@@ -183,7 +184,7 @@ public class Background extends JComponent{
 	}
 	
 	public void update(){
-		//Gondolas
+		// Gondolas
 		if(cloudX <= -10) cloudX = width;
 		else cloudX-=1;
 		if(gondola1Y < endY){

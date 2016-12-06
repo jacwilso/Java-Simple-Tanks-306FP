@@ -80,7 +80,7 @@ public class Projectile{
 	
 	//for drawing the projectile
 	public void draw(Graphics g){
-		g.setColor(Color.WHITE);
+		g.setColor(Color.MAGENTA);
 		g.fillOval((int)positionX, (int)positionY, 5, 5);	
 	}
 	//this function tests if the projectile has made contact with a target
